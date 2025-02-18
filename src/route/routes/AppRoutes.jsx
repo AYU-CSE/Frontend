@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../../pages/Home";
+import Home from "../../pages/Home/Home";
 import Community from "../../pages/Communities/Community/Community";
 import DepartmentInfo from "../../pages/Departments/DepartmentInfo/DepartmentInfo";
 import Notices from "../../pages/Notices/Notices/Notices";
 import ProfessorInfo from "../../pages/Professors/ProfessorsInfo/ProfessorInfo";
 import StudentService from "../../pages/StudentServices/StudentService/StudentService";
-import Notfound from "../../pages/Notfound";
+import Notfound from "../../pages/Notfound/Notfound";
 
 const AppRoutes = () => {
   return (

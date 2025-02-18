@@ -1,0 +1,59 @@
+.Header {
+  display: flex;
+  align-items: center;
+
+  padding: 20px 0px;
+  border-bottom: 1px solid rgb(226, 226, 226);
+  border-radius: 0 0 30px 30px;
+  background-color: white;
+}
+
+.Header > div {
+  display: flex;
+}
+
+.Header .header_center {
+  width: 70%;
+  justify-content: center;
+}
+
+.Header .header_left {
+  width: 20%;
+  justify-content: flex-start;
+  padding-left: 5px;
+}
+.Header .header_right {
+  width: 10%;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.header_center > li {
+  list-style-type: none;
+  margin: 20px auto;
+}
+
+.header_right > li {
+  list-style-type: none;
+  font-size: 10px;
+  padding: 1px 5px;
+  position: relative;
+  top: -25px;
+}
+
+.header_right_home,
+.header_right_AYU {
+  border-right: solid 0.5px;
+}
+
+.header_left,
+.header_center_professorInfo,
+.header_center_departmentInfo,
+.header_center_lectureRoom,
+.header_center_notice,
+.header_center_community,
+.header_right_home,
+.header_right_AYU,
+.header_right_Login {
+  cursor: pointer;
+}
