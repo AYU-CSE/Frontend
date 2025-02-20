@@ -1,65 +1,72 @@
-import Logo from "../../assets/Anyang_University_CSE_Logo.png";
-import "./Header.css";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import Logo1 from "../../assets/Anyang_University_CSE_Logo.png";
+import Logo2 from "../../assets/Anyang_University_CSE_Logo2.png";
+import "./Header.css";
 
 const Header = () => {
-  const [isHover, setIsHover] = useState(false);
+  const [isHover, setIsHover] = useState(true);
+  const [logo, setLogo] = useState(Logo1);
 
-  const handleIsHover = () => {
-    setIsHover(!isHover);
+  const handleMouseEnter = () => {
+    setIsHover(true);
+    setLogo(Logo1);
   };
 
+  const handleMouseLeave = () => {
+    setIsHover(false);
+    setLogo(Logo2);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 1) {
+        setIsHover(false);
+        setLogo(Logo2);
+      } else {
+        setIsHover(true);
+        setLogo(Logo1);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="Header">
-      <img src={Logo} className="header_left"></img>
-      <div className="header_center">
+    <div
+      className={isHover ? "Header Header_hover" : "Header Header_shrink"}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img src={logo} className="header_left" alt="Logo"></img>
+      <ul className="header_center">
         <li>
-          <Link className="header_center_professorInfo" to={"/professor-Info"}>
-            교수 소개
-          </Link>
+          <Link to={"/professor-Info"}>교수 소개</Link>
         </li>
         <li>
-          <Link
-            className="header_center_departmentInfo"
-            to={"/department-Info"}
-          >
-            학과 소개
-          </Link>
+          <Link to={"/department-Info"}>학과 소개</Link>
         </li>
         <li>
-          <Link className="header_center_lectureRoom" to={"/student-Service"}>
-            강의실
-          </Link>
+          <Link to={"/student-Service"}>강의실</Link>
         </li>
         <li>
-          <Link className="header_center_notice" to={"/notices"}>
-            공지 사항
-          </Link>
+          <Link to={"/notices"}>공지 사항</Link>
         </li>
         <li>
-          <Link className="header_center_community" to={"/community"}>
-            커뮤니티
-          </Link>
+          <Link to={"/community"}>커뮤니티</Link>
         </li>
-      </div>
-      <div className="header_right">
+      </ul>
+      <ul className="header_right">
         <li>
-          <Link className="header_right_home" to={"/"}>
-            Home
-          </Link>
+          <Link to={"/"}>Home</Link>
         </li>
         <li>
-          <Link className="header_right_AYU" to={"https://www.anyang.ac.kr/"}>
-            AYU
-          </Link>
+          <Link to={"https://www.anyang.ac.kr/"}>AYU</Link>
         </li>
         <li>
-          <Link className="header_right_Login" to={"/login"}>
-            LOGIN
-          </Link>
+          <Link to={"/login"}>LOGIN</Link>
         </li>
-      </div>
+      </ul>
     </div>
   );
 };

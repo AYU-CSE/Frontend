@@ -1,36 +1,73 @@
 .Header {
   display: flex;
   align-items: center;
-
-  padding: 20px 0px;
+  justify-content: center;
+  padding: 10px 0;
   border-bottom: 1px solid rgb(226, 226, 226);
   border-radius: 0 0 30px 30px;
   background-color: white;
+  height: 50px;
+  width: 20%;
+  min-width: 200px;
+  margin: 0 auto;
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
-.Header > div {
+.Header_hover {
+  height: 110px;
+  justify-content: space-between;
+  width: 100%;
+  transition: height 0.3s ease-in, width 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.Header_shrink > img {
+  width: 5%;
+  max-width: 60px;
+}
+
+.Header ul,
+img {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.Header_hover ul,
+img {
+  opacity: 1;
+}
+
+.Header > ul {
   display: flex;
 }
 
-.Header .header_center {
+.header_left {
+  width: 20%;
+  justify-content: flex-start;
+  padding-left: 5px;
+  flex-basis: 15%;
+}
+
+.header_center {
+  flex-basis: 65%;
   width: 70%;
   justify-content: center;
 }
 
-.Header .header_left {
-  width: 20%;
-  justify-content: flex-start;
-  padding-left: 5px;
-}
-.Header .header_right {
+.header_right {
   width: 10%;
   justify-content: flex-end;
   position: relative;
 }
 
 .header_center > li {
-  list-style-type: none;
-  margin: 20px auto;
+  margin: auto 60px;
 }
 
 .header_right > li {
@@ -57,4 +94,18 @@
 .header_right_Login {
   cursor: pointer;
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+ul a,
+ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul li {
+  min-width: fit-content;
 }
