@@ -56,4 +56,5 @@
 .header_right_AYU,
 .header_right_Login {
   cursor: pointer;
+  text-decoration: none;
 }
