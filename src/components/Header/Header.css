@@ -27,11 +27,6 @@
   transition: height 0.3s ease-in, width 0.3s ease-in, opacity 0.3s ease-in;
 }
 
-.Header_shrink > img {
-  width: 5%;
-  max-width: 60px;
-}
-
 .Header ul,
 img {
   opacity: 0;
@@ -54,6 +49,15 @@ img {
   flex-basis: 15%;
 }
 
+.header_left > img {
+  width: 30px;
+}
+
+.Header_hover > .header_left > img {
+  width: 300px;
+  padding-left: 10px;
+}
+
 .header_center {
   flex-basis: 65%;
   width: 70%;
@@ -72,17 +76,21 @@ img {
 
 .header_right > li {
   list-style-type: none;
-  font-size: 10px;
-  padding: 1px 5px;
+  font-size: 15px;
   position: relative;
   top: -25px;
 }
 
 .header_right_home,
+.header_right_LOGIN,
 .header_right_AYU {
-  border-right: solid 0.5px;
+  padding: 0px 7px;
 }
 
+.header_right_LOGIN,
+.header_right_AYU {
+  border-left: solid 0.5px;
+}
 .header_left,
 .header_center_professorInfo,
 .header_center_departmentInfo,

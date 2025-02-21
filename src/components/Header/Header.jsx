@@ -20,7 +20,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 1) {
+      if (window.scrollY > 200) {
         setIsHover(false);
         setLogo(Logo2);
       } else {
@@ -38,7 +38,9 @@ const Header = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img src={logo} className="header_left" alt="Logo"></img>
+      <Link to={"/"} className="header_left">
+        <img src={logo} alt="Logo"></img>
+      </Link>
       <ul className="header_center">
         <li>
           <Link to={"/professor-Info"}>교수 소개</Link>
@@ -58,13 +60,19 @@ const Header = () => {
       </ul>
       <ul className="header_right">
         <li>
-          <Link to={"/"}>Home</Link>
+          <Link to={"/"} className="header_right_home">
+            HOME
+          </Link>
         </li>
         <li>
-          <Link to={"https://www.anyang.ac.kr/"}>AYU</Link>
+          <Link to={"https://www.anyang.ac.kr/"} className="header_right_AYU">
+            AYU
+          </Link>
         </li>
         <li>
-          <Link to={"/login"}>LOGIN</Link>
+          <Link to={"/login"} className="header_right_LOGIN">
+            LOGIN
+          </Link>
         </li>
       </ul>
     </div>
