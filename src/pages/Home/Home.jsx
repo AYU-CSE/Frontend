@@ -49,7 +49,7 @@ const Home = () => {
 
   return (
     <div className="Home">
-      <Header />
+      <Header bgWhiteColor={true} />
       <section
         className="section_1"
         style={{
