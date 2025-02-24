@@ -1,10 +1,13 @@
 import { useState } from "react";
-import "./App.css";
+import "./styles/App.css";
+import AppRoutes from "./route/routes/AppRoutes";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <>AYU-CSE</>;
+  return (
+    <div>
+      <AppRoutes />
+    </div>
+  );
 }
 
 export default App;
