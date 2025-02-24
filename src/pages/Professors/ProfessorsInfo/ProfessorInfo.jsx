@@ -5,7 +5,7 @@ const ProfessorInfo = () => {
   return (
     <div>
       <Header />
-      ProfessorInfo(main)
+      ProfessorInfo (main)
     </div>
   );
 };
