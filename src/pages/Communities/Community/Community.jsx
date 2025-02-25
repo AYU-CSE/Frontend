@@ -37,12 +37,12 @@ const Community = () => {
               </tr>
             </thead>
             <tbody>
-              {[...Array(5)].map((_, index) => (
-                <tr key={index}>
-                  <td>303</td>
+              {[...Array(20)].map((_, index) => (
+                <tr key={index} className="community_pointer">
+                  <td>{index}</td>
                   <td>SDL 소스코드 📝</td>
                   <td>객체지향프로그래밍</td>
-                  <td>이상훈</td>
+                  <td>이상홍</td>
                   <td>2025-02-15</td>
                   <td>124</td>
                 </tr>

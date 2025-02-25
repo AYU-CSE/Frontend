@@ -51,8 +51,10 @@
     cursor: pointer;
   }
   
+
+
   .community_table_section {
-    width: 100%;
+    width: 80%;
   }
   
   .community_table {
@@ -64,14 +66,24 @@
   .community_table th, .community_table td {
     border: 1px solid #ddd;
     padding: 10px;
+    vertical-align: middle; /* 세로 중앙 정렬 */
+    height: 60px;
   }
   
   .community_table thead {
-    background-color: #1a1a50;
-    color: white;
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    height: 80px;
   }
-  
+
+  .community_pointer{
+    cursor: pointer;
+  }
+
   .community_table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--color-main);
   }
   
+  .community_table tbody tr:hover{
+    background-color: #b2c0d3;
+  }
