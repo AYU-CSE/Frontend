@@ -9,6 +9,8 @@
   align-items: center;
 }
 
+/* 헤더 */
+
 .community_header {
   width: 100%;
 
@@ -50,30 +52,41 @@
     border: none;
     cursor: pointer;
   }
-  
 
-
-  .community_table_section {
-    width: 80%;
+  .no_results {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #666;
   }
   
+
+  /* 테이블 */
+  
   .community_table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     text-align: center;
+    font-weight: 500;
+
   }
   
   .community_table th, .community_table td {
-    border: 1px solid #ddd;
     padding: 10px;
     vertical-align: middle; /* 세로 중앙 정렬 */
     height: 60px;
+    
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
   }
   
   .community_table thead {
     background-color: var(--color-navy);
     color: var(--color-white);
     height: 80px;
+    font-weight: 700;
+    font-size: 20px;
   }
 
   .community_pointer{
@@ -87,3 +100,28 @@
   .community_table tbody tr:hover{
     background-color: #b2c0d3;
   }
+
+
+  /* 페이지네이션 */
+.community_pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.community_pagination a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+}
+
+.community_pagination a:hover {
+  font-weight: bold;
+}
+
+/* 현재 페이지 강조 */
+.community_pagination a.active {
+  font-weight: bold;
+}
