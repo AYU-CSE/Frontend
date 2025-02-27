@@ -5,48 +5,102 @@ import "./Community.css";
 
 const Community = () => {
   const itemsPerPage = 15;
-  const totalItems = 40; // 전체 데이터 개수 (나중에 백에서 받아와야 함)
-
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState(""); // 검색창에 입력한 값
-  const [filteredSearch, setFilteredSearch] = useState(""); // 실제 검색 실행된 값
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredSearch, setFilteredSearch] = useState("");
+  const [searchCategory, setSearchCategory] = useState("all");
 
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const baseItems = [
+    {
+      title: "React 기초",
+      lecture: "프론트엔드 개발",
+      author: "김철수",
+      content: "React의 기본 개념을 설명합니다.",
+      date: "2025-02-10",
+      views: 100,
+    },
+    {
+      title: "Node.js 서버",
+      lecture: "백엔드 개발",
+      author: "이영희",
+      content: "Node.js 서버 설정 방법.",
+      date: "2025-02-11",
+      views: 85,
+    },
+    {
+      title: "Python 데이터 분석",
+      lecture: "데이터 과학",
+      author: "박민수",
+      content: "판다스를 활용한 데이터 분석.",
+      date: "2025-02-12",
+      views: 120,
+    },
+    {
+      title: "HTML & CSS",
+      lecture: "웹 기초",
+      author: "정하나",
+      content: "HTML과 CSS 기본 문법.",
+      date: "2025-02-13",
+      views: 90,
+    },
+    {
+      title: "알고리즘 문제 풀이",
+      lecture: "자료구조",
+      author: "손준호",
+      content: "DFS와 BFS를 설명합니다.",
+      date: "2025-02-14",
+      views: 75,
+    },
+  ];
 
-  // 게시글 데이터
-  const allItems = [...Array(totalItems)].map((_, index) => ({
-    id: index + 1,
-    title: "SDL 소스코드",
-    lecture: "객체지향프로그래밍",
-    author: "이상홍",
-    date: "2025-02-15",
-    views: 124,
+  const allItems = Array.from({ length: 20 }, (_, i) => ({
+    id: i + 1,
+    ...baseItems[i % baseItems.length],
+    date: `2025-02-${(i % 28) + 1}`,
+    views: 50 + Math.floor(Math.random() * 150),
   }));
 
-  // 검색어를 포함하는 데이터 필터링
-  const filteredItems = allItems.filter(
-    (item) => item.id.toString().includes(filteredSearch) // 검색된 값이 포함된 항목만 필터링
-  );
+  // 검색 필터링 로직
+  const filteredItems = allItems.filter((item) => {
+    if (filteredSearch === "") return true;
+    switch (searchCategory) {
+      case "title":
+        return item.title.includes(filteredSearch);
+      case "lecture":
+        return item.lecture.includes(filteredSearch);
+      case "author":
+        return item.author.includes(filteredSearch);
+      case "content":
+        return item.content.includes(filteredSearch);
+      default:
+        return (
+          item.title.includes(filteredSearch) ||
+          item.lecture.includes(filteredSearch) ||
+          item.author.includes(filteredSearch) ||
+          item.content.includes(filteredSearch)
+        );
+    }
+  });
 
-  // 현재 페이지의 데이터 필터링
+  // 현재 페이지 데이터
   const displayedItems = filteredItems.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  // 페이지 이동
+  // 페이지 변경
   const handlePageChange = (e, page) => {
     e.preventDefault();
     setCurrentPage(page);
   };
 
-  // 검색 실행
+  // 검색
   const handleSearch = () => {
     setFilteredSearch(searchTerm);
     setCurrentPage(1);
   };
 
-  // 엔터 키 입력 시 검색
+  // 엔터 키로 검색
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
@@ -65,7 +119,11 @@ const Community = () => {
 
         {/* 검색창 */}
         <div className="community_search">
-          <select className="category_select">
+          <select
+            className="category_select"
+            value={searchCategory}
+            onChange={(e) => setSearchCategory(e.target.value)}
+          >
             <option value="all">전체</option>
             <option value="title">제목</option>
             <option value="lecture">강의명</option>
@@ -77,7 +135,7 @@ const Community = () => {
             placeholder="검색어 입력"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyPress={handleKeyPress} // 엔터 키 감지
+            onKeyPress={handleKeyPress}
           />
           <button className="search_button" onClick={handleSearch}>
             검색
