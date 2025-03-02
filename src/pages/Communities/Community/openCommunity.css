@@ -9,6 +9,38 @@
   align-items: center;
 }
 
+.community_category {
+  height: 45px;
+  width: 80%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category_left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  height: 100%;
+}
+
+.category_left > div {
+  padding: 0 10px;
+}
+
+.category_bg {
+  height: 100%;
+
+  padding: 0 12px;
+  background-color: #6e83a2;
+  color: var(--color-white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* 헤더 */
 
 .community_header {
@@ -28,38 +60,6 @@
   font-size: 30px;
 }
 
-.community_search {
-  width: 80%;
-
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.category_select,
-input[type="text"],
-.search_button {
-  padding: 8px;
-  font-size: 16px;
-}
-
-.search_button {
-  background-color: #1a73e8;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.no_results {
-  text-align: center;
-  padding: 20px;
-  font-size: 18px;
-  color: #666;
-}
-
 /* 테이블 */
 
 .community_table {
@@ -75,7 +75,6 @@ input[type="text"],
   vertical-align: middle; /* 세로 중앙 정렬 */
   height: 60px;
 
-  border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
 
@@ -104,8 +103,8 @@ input[type="text"],
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  margin-top: 20px;
+  gap: 30px;
+  margin: 20px;
 }
 
 .community_pagination a {
@@ -121,4 +120,36 @@ input[type="text"],
 /* 현재 페이지 강조 */
 .community_pagination a.active {
   font-weight: bold;
+}
+
+.community_search {
+  width: 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category_select,
+input[type="text"],
+.search_button {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.search_button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.no_results {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #666;
 }
