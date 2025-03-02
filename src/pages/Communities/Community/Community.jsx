@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
 import "./Community.css";
@@ -9,6 +9,7 @@ const Community = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredSearch, setFilteredSearch] = useState("");
   const [searchCategory, setSearchCategory] = useState("all");
+  const [allItems, setAllItems] = useState([]);
 
   const baseItems = [
     {
@@ -53,14 +54,16 @@ const Community = () => {
     },
   ];
 
-  const allItems = Array.from({ length: 20 }, (_, i) => ({
-    id: i + 1,
-    ...baseItems[i % baseItems.length],
-    date: `2025-02-${(i % 28) + 1}`,
-    views: 50 + Math.floor(Math.random() * 150),
-  }));
+  useEffect(() => {
+    const generatedItems = Array.from({ length: 20 }, (_, i) => ({
+      id: i + 1,
+      ...baseItems[i % baseItems.length],
+      date: `2025-02-${(i % 28) + 1}`,
+      views: 50 + Math.floor(Math.random() * 150),
+    }));
+    setAllItems(generatedItems);
+  }, []);
 
-  // 검색 필터링 로직
   const filteredItems = allItems.filter((item) => {
     if (filteredSearch === "") return true;
     switch (searchCategory) {
@@ -82,25 +85,21 @@ const Community = () => {
     }
   });
 
-  // 현재 페이지 데이터
   const displayedItems = filteredItems.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  // 페이지 변경
   const handlePageChange = (e, page) => {
     e.preventDefault();
     setCurrentPage(page);
   };
 
-  // 검색
   const handleSearch = () => {
     setFilteredSearch(searchTerm);
     setCurrentPage(1);
   };
 
-  // 엔터 키로 검색
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
@@ -117,7 +116,6 @@ const Community = () => {
           </div>
         </header>
 
-        {/* 검색창 */}
         <div className="community_search">
           <select
             className="category_select"
@@ -142,7 +140,6 @@ const Community = () => {
           </button>
         </div>
 
-        {/* 자료실 테이블 */}
         <table className="community_table">
           <thead>
             <tr>
@@ -175,34 +172,6 @@ const Community = () => {
             )}
           </tbody>
         </table>
-
-        {/* 페이지네이션 */}
-        <div className="community_pagination">
-          {currentPage > 1 && (
-            <a href="#" onClick={(e) => handlePageChange(e, currentPage - 1)}>
-              &lt;
-            </a>
-          )}
-
-          {[...Array(Math.ceil(filteredItems.length / itemsPerPage))].map(
-            (_, index) => (
-              <a
-                key={index}
-                href="#"
-                onClick={(e) => handlePageChange(e, index + 1)}
-                className={currentPage === index + 1 ? "active" : ""}
-              >
-                {index + 1}
-              </a>
-            )
-          )}
-
-          {currentPage < Math.ceil(filteredItems.length / itemsPerPage) && (
-            <a href="#" onClick={(e) => handlePageChange(e, currentPage + 1)}>
-              &gt;
-            </a>
-          )}
-        </div>
       </main>
       <Footer />
     </div>
