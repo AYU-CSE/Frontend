@@ -66,7 +66,6 @@ const OpenCommunity = () => {
       id: i + 1,
       ...baseItems[i % baseItems.length],
       date: `2025-02-${(i % 28) + 1}`,
-      views: 50 + Math.floor(Math.random() * 150),
     }));
     setAllItems(generatedItems);
   }, []);
