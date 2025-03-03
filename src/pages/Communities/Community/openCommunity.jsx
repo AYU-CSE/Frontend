@@ -3,7 +3,7 @@ import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
 import "./openCommunity.css";
 
-const Community = () => {
+const OpenCommunity = () => {
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,38 +13,48 @@ const Community = () => {
 
   const baseItems = [
     {
+      board: "학업 게시판",
       title: "React 기초",
       author: "김철수",
       content: "React의 기본 개념을 설명합니다.",
       date: "2025-02-10",
+      comment: 70,
       views: 100,
     },
     {
+      board: "취업 게시판",
       title: "Node.js 서버",
       author: "이영희",
       content: "Node.js 서버 설정 방법.",
       date: "2025-02-11",
+      comment: 75,
       views: 85,
     },
     {
+      board: "프로젝트 게시판",
       title: "Python 데이터 분석",
       author: "박민수",
       content: "판다스를 활용한 데이터 분석.",
       date: "2025-02-12",
+      comment: 100,
       views: 120,
     },
     {
+      board: "정보 게시판",
       title: "HTML & CSS",
       author: "정하나",
       content: "HTML과 CSS 기본 문법.",
       date: "2025-02-13",
+      comment: 3,
       views: 90,
     },
     {
+      board: "학업 게시판",
       title: "알고리즘 문제 풀이",
       author: "손준호",
       content: "DFS와 BFS를 설명합니다.",
       date: "2025-02-14",
+      comment: 10,
       views: 75,
     },
   ];
@@ -107,7 +117,17 @@ const Community = () => {
             커뮤니티 &gt; <span>오픈게시판</span>
           </div>
         </header>
-
+        {/* 카테고리 선택 */}
+        <div className="community_category">
+          <div className="category_left">
+            <div className="category_bg">전체 게시판</div>
+            <div className="category_bg">학업 게시판</div>
+            <div className="category_bg">취업 게시판</div>
+            <div className="category_bg">프로젝트 게시판</div>
+            <div className="category_bg">정보 게시판</div>
+          </div>
+          <div className="category_right category_bg">나의 게시판</div>
+        </div>
         <table className="community_table">
           <thead>
             <tr>
@@ -115,6 +135,7 @@ const Community = () => {
               <th>제목</th>
               <th>작성자</th>
               <th>작성일</th>
+              <th>댓글</th>
               <th>조회수</th>
             </tr>
           </thead>
@@ -126,6 +147,7 @@ const Community = () => {
                   <td>{item.title}</td>
                   <td>{item.author}</td>
                   <td>{item.date}</td>
+                  <td>{item.comment}</td>
                   <td>{item.views}</td>
                 </tr>
               ))
@@ -173,6 +195,7 @@ const Community = () => {
             <option value="all">전체</option>
             <option value="title">제목</option>
             <option value="author">작성자</option>
+            <option value="author">댓글</option>
             <option value="content">내용</option>
           </select>
           <input
@@ -192,4 +215,4 @@ const Community = () => {
   );
 };
 
-export default Community;
+export default OpenCommunity;

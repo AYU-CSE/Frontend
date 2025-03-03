@@ -21,24 +21,26 @@
 .category_left {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 35px;
   height: 100%;
-}
-
-.category_left > div {
-  padding: 0 10px;
 }
 
 .category_bg {
   height: 100%;
-
   padding: 0 12px;
   background-color: #6e83a2;
   color: var(--color-white);
-
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* 선택된 게시판 스타일 */
+.category_bg.active {
+  background-color: var(--color-navy);
+  font-weight: bold;
 }
 
 /* 헤더 */
