@@ -10,6 +10,8 @@ const OpenCommunity = () => {
   const [filteredSearch, setFilteredSearch] = useState("");
   const [searchCategory, setSearchCategory] = useState("all");
   const [allItems, setAllItems] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("전체 게시판");
+  const myUserName = "이영희"; // 임시 유저 이름
 
   const baseItems = [
     {
@@ -69,23 +71,40 @@ const OpenCommunity = () => {
     setAllItems(generatedItems);
   }, []);
 
-  const filteredItems = allItems.filter((item) => {
-    if (filteredSearch === "") return true;
-    switch (searchCategory) {
-      case "title":
-        return item.title.includes(filteredSearch);
-      case "author":
-        return item.author.includes(filteredSearch);
-      case "content":
-        return item.content.includes(filteredSearch);
-      default:
-        return (
-          item.title.includes(filteredSearch) ||
-          item.author.includes(filteredSearch) ||
-          item.content.includes(filteredSearch)
-        );
-    }
-  });
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  };
+
+  const handleMyBoardClick = () => {
+    setSelectedCategory("나의 게시판");
+    setCurrentPage(1);
+  };
+
+  const filteredItems = allItems
+    .filter((item) => {
+      const matchesCategory =
+        selectedCategory === "전체 게시판" ||
+        selectedCategory === "나의 게시판" || // ✅ 추가
+        item.board === selectedCategory;
+
+      const matchesMyBoard =
+        selectedCategory === "나의 게시판" ? item.author === myUserName : true;
+
+      const matchesSearch =
+        filteredSearch === "" ||
+        (searchCategory === "title" && item.title.includes(filteredSearch)) ||
+        (searchCategory === "author" && item.author.includes(filteredSearch)) ||
+        (searchCategory === "content" &&
+          item.content.includes(filteredSearch)) ||
+        (searchCategory === "all" &&
+          (item.title.includes(filteredSearch) ||
+            item.author.includes(filteredSearch) ||
+            item.content.includes(filteredSearch)));
+
+      return matchesCategory && matchesMyBoard && matchesSearch;
+    })
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const displayedItems = filteredItems.slice(
     (currentPage - 1) * itemsPerPage,
@@ -107,7 +126,6 @@ const OpenCommunity = () => {
       handleSearch();
     }
   };
-
   return (
     <div className="community">
       <Header />
@@ -117,17 +135,35 @@ const OpenCommunity = () => {
             커뮤니티 &gt; <span>오픈게시판</span>
           </div>
         </header>
+
         {/* 카테고리 선택 */}
         <div className="community_category">
           <div className="category_left">
-            <div className="category_bg">전체 게시판</div>
-            <div className="category_bg">학업 게시판</div>
-            <div className="category_bg">취업 게시판</div>
-            <div className="category_bg">프로젝트 게시판</div>
-            <div className="category_bg">정보 게시판</div>
+            {[
+              "전체 게시판",
+              "학업 게시판",
+              "취업 게시판",
+              "프로젝트 게시판",
+              "정보 게시판",
+            ].map((category) => (
+              <div
+                key={category}
+                className={`category_bg ${selectedCategory === category ? "active" : ""}`}
+                onClick={() => handleCategoryClick(category)}
+              >
+                {category}
+              </div>
+            ))}
           </div>
-          <div className="category_right category_bg">나의 게시판</div>
+          <div
+            className={`category_right category_bg ${selectedCategory === "나의 게시판" ? "active" : ""}`}
+            onClick={handleMyBoardClick}
+          >
+            나의 게시판
+          </div>
         </div>
+
+        {/* 게시글 목록 */}
         <table className="community_table">
           <thead>
             <tr>
@@ -153,7 +189,7 @@ const OpenCommunity = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="no_results">
+                <td colSpan="6" className="no_results">
                   검색 결과가 없습니다.
                 </td>
               </tr>
@@ -161,6 +197,7 @@ const OpenCommunity = () => {
           </tbody>
         </table>
 
+        {/* 페이지네이션 */}
         <div className="community_pagination">
           {currentPage > 1 && (
             <a href="#" onClick={(e) => handlePageChange(e, currentPage - 1)}>
@@ -186,7 +223,8 @@ const OpenCommunity = () => {
           )}
         </div>
 
-        <div className="community_search">
+        {/* 검색 필터 */}
+        <div className="open_community_search">
           <select
             className="category_select"
             value={searchCategory}
@@ -195,7 +233,6 @@ const OpenCommunity = () => {
             <option value="all">전체</option>
             <option value="title">제목</option>
             <option value="author">작성자</option>
-            <option value="author">댓글</option>
             <option value="content">내용</option>
           </select>
           <input
