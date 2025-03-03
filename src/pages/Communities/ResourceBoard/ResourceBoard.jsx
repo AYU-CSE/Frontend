@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
-import "./dataCommunity.css";
+import "./ResourceBoard.css";
 
-const dataCommunity = () => {
+const ResourceBoard = () => {
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
@@ -213,4 +213,4 @@ const dataCommunity = () => {
   );
 };
 
-export default dataCommunity;
+export default ResourceBoard;

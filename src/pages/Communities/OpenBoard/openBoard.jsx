@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
-import "./openCommunity.css";
+import "./openBoard.css";
 
-const OpenCommunity = () => {
+const OpenBoard = () => {
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
@@ -251,4 +251,4 @@ const OpenCommunity = () => {
   );
 };
 
-export default OpenCommunity;
+export default OpenBoard;

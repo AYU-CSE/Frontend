@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../../pages/Home/Home";
-import DataCommunity from "../../pages/Communities/Community/dataCommunity";
-import OpenCommunity from "../../pages/Communities/OpenBoard/openCommunity";
+import ResourceBoard from "../../pages/Communities/ResourceBoard/ResourceBoard";
+import OpenBoard from "../../pages/Communities/OpenBoard/openBoard";
 import DepartmentInfo from "../../pages/Departments/DepartmentInfo/DepartmentInfo";
 import Notices from "../../pages/Notices/Notices/Notices";
 import ProfessorInfo from "../../pages/Professors/ProfessorsInfo/ProfessorInfo";
@@ -12,7 +12,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/community" element={<OpenCommunity />} />
+      <Route path="/community" element={<ResourceBoard />} />
       <Route path="/department-Info" element={<DepartmentInfo />} />
       <Route path="/notices" element={<Notices />} />
       <Route path="/professor-Info" element={<ProfessorInfo />} />
