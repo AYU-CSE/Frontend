@@ -1,31 +1,22 @@
-.community_main {
-  width: 100%;
-  margin: auto;
-  margin-top: 190px;
-  padding: 20px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+@import "../communityCommon.css";
 
+/* 오픈게시판 전용 스타일 */
 .community_category {
   height: 45px;
   width: 80%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.category_left {
+.community_category_left {
   display: flex;
   align-items: center;
   gap: 35px;
   height: 100%;
 }
 
-.category_bg {
+.community_category_bg {
   height: 100%;
   padding: 0 12px;
   background-color: #6e83a2;
@@ -38,118 +29,7 @@
 }
 
 /* 선택된 게시판 스타일 */
-.category_bg.active {
+.community_category_bg.active {
   background-color: var(--color-navy);
   font-weight: bold;
-}
-
-/* 헤더 */
-
-.community_header {
-  width: 100%;
-
-  font-family: "NanumSquareNeo", sans-serif;
-  font-size: 42px;
-  font-weight: 700;
-
-  margin-bottom: 30px;
-}
-.community_header div {
-  margin-left: 85px;
-}
-.community_header span {
-  font-weight: 400;
-  font-size: 30px;
-}
-
-/* 테이블 */
-
-.community_table {
-  width: 80%;
-  border-collapse: collapse;
-  text-align: center;
-  font-weight: 500;
-}
-
-.community_table th,
-.community_table td {
-  padding: 10px;
-  vertical-align: middle; /* 세로 중앙 정렬 */
-  height: 60px;
-}
-
-.community_table thead {
-  background-color: var(--color-navy);
-  color: var(--color-white);
-  height: 80px;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.community_pointer {
-  cursor: pointer;
-}
-
-.community_table tbody tr:nth-child(even) {
-  background-color: var(--color-main);
-}
-
-.community_table tbody tr:hover {
-  background-color: #b2c0d3;
-}
-
-/* 페이지네이션 */
-.community_pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  margin: 20px;
-}
-
-.community_pagination a {
-  text-decoration: none;
-  color: #333;
-  font-size: 20px;
-}
-
-.community_pagination a:hover {
-  font-weight: bold;
-}
-
-/* 현재 페이지 강조 */
-.community_pagination a.active {
-  font-weight: bold;
-}
-
-.open_community_search {
-  width: 80%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.category_select,
-input[type="text"],
-.search_button {
-  padding: 8px;
-  font-size: 16px;
-}
-
-.search_button {
-  background-color: #1a73e8;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.no_results {
-  text-align: center;
-  padding: 20px;
-  font-size: 18px;
-  color: #666;
 }

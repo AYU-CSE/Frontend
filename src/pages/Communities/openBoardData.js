@@ -1,3 +1,5 @@
+// 오픈 게시판 임시 데이터
+
 const openBoardData = [
   {
     board: "학업 게시판",

@@ -91,7 +91,7 @@ const OpenBoard = () => {
 
         {/* 카테고리 선택 */}
         <div className="community_category">
-          <div className="category_left">
+          <div className="community_category_left">
             {[
               "전체 게시판",
               "학업 게시판",
@@ -101,7 +101,7 @@ const OpenBoard = () => {
             ].map((category) => (
               <div
                 key={category}
-                className={`category_bg ${selectedCategory === category ? "active" : ""}`}
+                className={`community_category_bg ${selectedCategory === category ? "active" : ""}`}
                 onClick={() => handleCategoryClick(category)}
               >
                 {category}
@@ -109,7 +109,7 @@ const OpenBoard = () => {
             ))}
           </div>
           <div
-            className={`category_right category_bg ${selectedCategory === "나의 게시판" ? "active" : ""}`}
+            className={`community_category_right community_category_bg ${selectedCategory === "나의 게시판" ? "active" : ""}`}
             onClick={handleMyBoardClick}
           >
             나의 게시판
@@ -142,7 +142,7 @@ const OpenBoard = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="no_results">
+                <td colSpan="6" className="community_no_results">
                   검색 결과가 없습니다.
                 </td>
               </tr>
@@ -179,7 +179,7 @@ const OpenBoard = () => {
         {/* 검색 필터 */}
         <div className="open_community_search">
           <select
-            className="category_select"
+            className="community_category_select"
             value={searchCategory}
             onChange={(e) => setSearchCategory(e.target.value)}
           >
@@ -195,7 +195,7 @@ const OpenBoard = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}
           />
-          <button className="search_button" onClick={handleSearch}>
+          <button className="community_search_button" onClick={handleSearch}>
             검색
           </button>
         </div>

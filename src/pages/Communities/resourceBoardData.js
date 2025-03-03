@@ -1,3 +1,5 @@
+// 자료실 임시데이터
+
 const resourceBoardData = [
   {
     title: "React 기초",

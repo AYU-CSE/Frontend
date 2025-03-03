@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
 import resourceBoardData from "../resourceBoardData";
-import "./resourceBoard.css";
+import "../communityCommon.css";
 
 const ResourceBoard = () => {
   const itemsPerPage = 15;
@@ -81,7 +81,7 @@ const ResourceBoard = () => {
         {/* 검색창 */}
         <div className="community_search">
           <select
-            className="category_select"
+            className="community_category_select"
             value={searchCategory}
             onChange={(e) => setSearchCategory(e.target.value)}
           >
@@ -98,7 +98,7 @@ const ResourceBoard = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}
           />
-          <button className="search_button" onClick={handleSearch}>
+          <button className="community_search_button" onClick={handleSearch}>
             검색
           </button>
         </div>
@@ -129,7 +129,7 @@ const ResourceBoard = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="no_results">
+                <td colSpan="6" className="community_no_results">
                   검색 결과가 없습니다.
                 </td>
               </tr>
