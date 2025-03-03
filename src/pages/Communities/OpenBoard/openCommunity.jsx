@@ -85,7 +85,7 @@ const OpenCommunity = () => {
     .filter((item) => {
       const matchesCategory =
         selectedCategory === "전체 게시판" ||
-        selectedCategory === "나의 게시판" || // ✅ 추가
+        selectedCategory === "나의 게시판" ||
         item.board === selectedCategory;
 
       const matchesMyBoard =
