@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Footer from "../../../components/Footer/Footer";
-import Header from "../../../components/Header/Header";
+import Nav from "../../../components/Nav/Nav";
 import "./Community.css";
 
 const Community = () => {
@@ -109,7 +109,7 @@ const Community = () => {
 
   return (
     <div className="community">
-      <Header />
+      <Nav />
       <main className="community_main">
         <header className="community_header">
           <div>
