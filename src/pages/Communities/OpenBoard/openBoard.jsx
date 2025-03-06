@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
+import Hamburger from "../../../components/Hamburger/Hamburger";
 import openBoardData from "../openBoardData";
 import "./openBoard.css";
 
@@ -199,6 +200,7 @@ const OpenBoard = () => {
             검색
           </button>
         </div>
+        <Hamburger />
       </main>
       <Footer />
     </div>
