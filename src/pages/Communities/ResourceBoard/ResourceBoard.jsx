@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
+import Hamburger from "../../../components/Hamburger/Hamburger";
 import resourceBoardData from "../resourceBoardData";
 import "../communityCommon.css";
 
@@ -10,15 +11,12 @@ const ResourceBoard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredSearch, setFilteredSearch] = useState("");
   const [searchCategory, setSearchCategory] = useState("all");
+  const [allItems, setAllItems] = useState(resourceBoardData);
 
-  const [allItems] = useState(() => {
-    // 임시로 값 생성, 백이랑 연결하면 바꿔줘야 함
-    return Array.from({ length: 20 }, (_, i) => ({
-      id: i + 1,
-      ...resourceBoardData[i % resourceBoardData.length],
-      date: `2025-02-${(i % 28) + 1}`,
-    }));
-  });
+  useEffect(() => {
+    // 추후 백엔드 API와 연결 시 fetch 요청으로 변경 예정
+    setAllItems(resourceBoardData);
+  }, []);
 
   const filteredItems = useMemo(() => {
     return allItems
@@ -164,6 +162,7 @@ const ResourceBoard = () => {
             </a>
           )}
         </div>
+        <Hamburger />
       </main>
       <Footer />
     </div>

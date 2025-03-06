@@ -11,18 +11,13 @@ const OpenBoard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredSearch, setFilteredSearch] = useState("");
   const [searchCategory, setSearchCategory] = useState("all");
-  const [allItems, setAllItems] = useState([]);
+  const [allItems, setAllItems] = useState(openBoardData);
   const [selectedCategory, setSelectedCategory] = useState("전체 게시판");
   const myUserName = "이영희"; // 임시 유저 이름
 
   useEffect(() => {
-    // 임시로 값 생성, 백이랑 연결하면 바꿔줘야 함
-    const generatedItems = Array.from({ length: 20 }, (_, i) => ({
-      id: i + 1,
-      ...openBoardData[i % openBoardData.length],
-      date: `2025-02-${(i % 28) + 1}`,
-    }));
-    setAllItems(generatedItems);
+    // 추후 백엔드 API와 연결 시 fetch 요청으로 변경 예정
+    setAllItems(openBoardData);
   }, []);
 
   const handleCategoryClick = (category) => {
