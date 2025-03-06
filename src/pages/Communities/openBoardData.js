@@ -195,10 +195,23 @@ const openBoardData = [
     title: "Spring Boot",
     author: "남태현",
     content: "Spring Boot 개념과 활용.",
-    date: "2025-02-29",
+    date: "2025-03-06",
     comment: 60,
     views: 155,
   },
 ];
 
-export default openBoardData;
+const today = new Date();
+
+const updatedBoardData = openBoardData.map((item) => {
+  const postDate = new Date(item.date);
+  const diffTime = Math.abs(today - postDate);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  return {
+    ...item,
+    title: diffDays <= 3 ? `${item.title} (new)` : item.title,
+  };
+});
+
+export default updatedBoardData;
