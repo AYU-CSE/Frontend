@@ -3,7 +3,7 @@ import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
 import Hamburger from "../../../components/Hamburger/Hamburger";
 import resourceBoardData from "../resourceBoardData";
-import "../communityCommon.css";
+import styles from "../communityCommon.module.css";
 
 const ResourceBoard = () => {
   const itemsPerPage = 15;
@@ -67,19 +67,19 @@ const ResourceBoard = () => {
   };
 
   return (
-    <div className="community">
+    <div className={styles.community}>
       <Header />
-      <main className="community_main">
-        <header className="community_header">
+      <main className={styles.community_main}>
+        <header className={styles.community_header}>
           <div>
             커뮤니티 &gt; <span>자료실</span>
           </div>
         </header>
 
         {/* 검색창 */}
-        <div className="community_search">
+        <div className={styles.community_search}>
           <select
-            className="community_category_select"
+            className={styles.community_category_select}
             value={searchCategory}
             onChange={(e) => setSearchCategory(e.target.value)}
           >
@@ -94,15 +94,18 @@ const ResourceBoard = () => {
             placeholder="검색어 입력"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyDown={(e) => handleKeyPress(e)}
           />
-          <button className="community_search_button" onClick={handleSearch}>
+          <button
+            className={styles.community_search_button}
+            onClick={handleSearch}
+          >
             검색
           </button>
         </div>
 
         {/* 자료실 테이블 */}
-        <table className="community_table">
+        <table className={styles.community_table}>
           <thead>
             <tr>
               <th>No.</th>
@@ -116,7 +119,7 @@ const ResourceBoard = () => {
           <tbody>
             {displayedItems.length > 0 ? (
               displayedItems.map((item) => (
-                <tr key={item.id} className="community_pointer">
+                <tr key={item.id} className={styles.community_pointer}>
                   <td>{item.id}</td>
                   <td>{item.title}</td>
                   <td>{item.lecture}</td>
@@ -127,7 +130,7 @@ const ResourceBoard = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="community_no_results">
+                <td colSpan="6" className={styles.community_no_results}>
                   검색 결과가 없습니다.
                 </td>
               </tr>
@@ -136,7 +139,7 @@ const ResourceBoard = () => {
         </table>
 
         {/* 페이지네이션 */}
-        <div className="community_pagination">
+        <div className={styles.community_pagination}>
           {currentPage > 1 && (
             <a href="#" onClick={(e) => handlePageChange(e, currentPage - 1)}>
               &lt;
@@ -149,7 +152,7 @@ const ResourceBoard = () => {
                 key={index}
                 href="#"
                 onClick={(e) => handlePageChange(e, index + 1)}
-                className={currentPage === index + 1 ? "active" : ""}
+                className={currentPage === index + 1 ? styles.active : ""}
               >
                 {index + 1}
               </a>

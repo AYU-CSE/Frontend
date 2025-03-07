@@ -1,0 +1,28 @@
+@import "../communityCommon.module.css";
+
+.open_community_detail {
+  width: 70%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-left: 20px;
+  border-radius: 30px;
+
+  background-color: var(--color-main);
+}
+
+.open_community_detail header {
+  width: 90%;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 20px;
+}
+
+.open_community_detail_header_left span {
+  margin: 0 20px;
+}

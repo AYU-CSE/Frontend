@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
 import Hamburger from "../../../components/Hamburger/Hamburger";
 import openBoardData from "../openBoardData";
-import "./openBoard.css";
+
+import styles from "./openBoard.module.css";
 
 const OpenBoard = () => {
   const itemsPerPage = 15;
@@ -14,6 +17,7 @@ const OpenBoard = () => {
   const [allItems, setAllItems] = useState(openBoardData);
   const [selectedCategory, setSelectedCategory] = useState("전체 게시판");
   const myUserName = "이영희"; // 임시 유저 이름
+  const navigate = useNavigate();
 
   useEffect(() => {
     // 추후 백엔드 API와 연결 시 fetch 요청으로 변경 예정
@@ -75,19 +79,24 @@ const OpenBoard = () => {
       handleSearch();
     }
   };
+
+  const handlePostClick = (id) => {
+    navigate(`/open-board/${id}`);
+  };
+
   return (
-    <div className="community">
+    <div className={styles.community}>
       <Header />
-      <main className="community_main">
-        <header className="community_header">
+      <main className={styles.community_main}>
+        <header className={styles.community_header}>
           <div>
             커뮤니티 &gt; <span>오픈게시판</span>
           </div>
         </header>
 
         {/* 카테고리 선택 */}
-        <div className="community_category">
-          <div className="community_category_left">
+        <div className={styles.community_category}>
+          <div className={styles.community_category_left}>
             {[
               "전체 게시판",
               "학업 게시판",
@@ -97,7 +106,7 @@ const OpenBoard = () => {
             ].map((category) => (
               <div
                 key={category}
-                className={`community_category_bg ${selectedCategory === category ? "active" : ""}`}
+                className={`${styles.community_category_bg} ${selectedCategory === category ? styles.active : ""}`}
                 onClick={() => handleCategoryClick(category)}
               >
                 {category}
@@ -105,7 +114,9 @@ const OpenBoard = () => {
             ))}
           </div>
           <div
-            className={`community_category_right community_category_bg ${selectedCategory === "나의 게시판" ? "active" : ""}`}
+            className={`${styles.community_category_right} ${styles.community_category_bg} ${
+              selectedCategory === "나의 게시판" ? styles.active : ""
+            }`}
             onClick={handleMyBoardClick}
           >
             나의 게시판
@@ -113,7 +124,7 @@ const OpenBoard = () => {
         </div>
 
         {/* 게시글 목록 */}
-        <table className="community_table">
+        <table className={styles.community_table}>
           <thead>
             <tr>
               <th>No.</th>
@@ -127,7 +138,11 @@ const OpenBoard = () => {
           <tbody>
             {displayedItems.length > 0 ? (
               displayedItems.map((item) => (
-                <tr key={item.id} className="community_pointer">
+                <tr
+                  key={item.id}
+                  className={styles.community_pointer}
+                  onClick={() => handlePostClick(item.id)}
+                >
                   <td>{item.id}</td>
                   <td>{item.title}</td>
                   <td>{item.author}</td>
@@ -138,7 +153,7 @@ const OpenBoard = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="community_no_results">
+                <td colSpan="6" className={styles.community_no_results}>
                   검색 결과가 없습니다.
                 </td>
               </tr>
@@ -147,7 +162,7 @@ const OpenBoard = () => {
         </table>
 
         {/* 페이지네이션 */}
-        <div className="community_pagination">
+        <div className={styles.community_pagination}>
           {currentPage > 1 && (
             <a href="#" onClick={(e) => handlePageChange(e, currentPage - 1)}>
               &lt;
@@ -159,7 +174,7 @@ const OpenBoard = () => {
                 key={index}
                 href="#"
                 onClick={(e) => handlePageChange(e, index + 1)}
-                className={currentPage === index + 1 ? "active" : ""}
+                className={currentPage === index + 1 ? styles.active : ""}
               >
                 {index + 1}
               </a>
@@ -173,9 +188,9 @@ const OpenBoard = () => {
         </div>
 
         {/* 검색 필터 */}
-        <div className="open_community_search">
+        <div className={styles.open_community_search}>
           <select
-            className="community_category_select"
+            className={styles.community_category_select}
             value={searchCategory}
             onChange={(e) => setSearchCategory(e.target.value)}
           >
@@ -189,9 +204,12 @@ const OpenBoard = () => {
             placeholder="검색어 입력"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyDown={(e) => handleKeyPress(e)}
           />
-          <button className="community_search_button" onClick={handleSearch}>
+          <button
+            className={styles.community_search_button}
+            onClick={handleSearch}
+          >
             검색
           </button>
         </div>
