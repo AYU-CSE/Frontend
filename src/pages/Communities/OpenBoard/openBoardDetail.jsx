@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../../components/Footer/Footer";
-import Header from "../../../components/Header/Header";
+import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
 import updatedBoardData from "../openBoardData";
 
@@ -14,7 +14,7 @@ const OpenBoardDetail = () => {
   if (!post) {
     return (
       <div className={styles.community}>
-        <Header />
+        <Nav />
         <main className={styles.community_main}>
           <header className={styles.community_header}>
             <div>

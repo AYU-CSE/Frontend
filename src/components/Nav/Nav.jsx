@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo1 from "../../assets/Anyang_University_CSE_Logo.png";
 import Logo2 from "../../assets/Anyang_University_CSE_Logo2.png";
-import "./Header.css";
+import "./Nav.css";
 
-const Header = ({ bgWhiteColor = false }) => {
+const Nav = ({ bgWhiteColor = false }) => {
   const [isHover, setIsHover] = useState(true);
   const [logo, setLogo] = useState(Logo1);
   const [headerHeight, setHeaderHeight] = useState(110);
@@ -47,7 +47,7 @@ const Header = ({ bgWhiteColor = false }) => {
 
   return (
     <div
-      className={`Header ${isHover ? "Header_hover" : "Header_shrink"}
+      className={`Nav ${isHover ? "Nav_hover" : "Nav_shrink"}
       ${bgWhiteColor ? " bgWhite" : "var(--color-main)"} `}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -56,10 +56,10 @@ const Header = ({ bgWhiteColor = false }) => {
       //   height: `${headerHeight}px`,
       // }}
     >
-      <Link to={"/"} className="header_left">
+      <Link to={"/"} className="nav_left">
         <img src={logo} alt="Logo"></img>
       </Link>
-      <ul className="header_center">
+      <ul className="nav_center">
         <li>
           <Link to={"/professor-Info"}>교수 소개</Link>
         </li>
@@ -76,19 +76,19 @@ const Header = ({ bgWhiteColor = false }) => {
           <Link to={"/community"}>커뮤니티</Link>
         </li>
       </ul>
-      <ul className="header_right">
+      <ul className="nav_right">
         <li>
-          <Link to={"/"} className="header_right_home">
+          <Link to={"/"} className="nav_right_home">
             HOME
           </Link>
         </li>
         <li>
-          <Link to={"https://www.anyang.ac.kr/"} className="header_right_AYU">
+          <Link to={"https://www.anyang.ac.kr/"} className="nav_right_AYU">
             AYU
           </Link>
         </li>
         <li>
-          <Link to={"/login"} className="header_right_LOGIN">
+          <Link to={"/login"} className="nav_right_LOGIN">
             LOGIN
           </Link>
         </li>
@@ -97,4 +97,4 @@ const Header = ({ bgWhiteColor = false }) => {
   );
 };
 
-export default Header;
+export default Nav;
