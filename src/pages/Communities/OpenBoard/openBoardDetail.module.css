@@ -1,141 +1,122 @@
 @import "../communityCommon.module.css";
 
-.post_container {
+/* 게시글 전체 레이아웃 */
+.postWrapper {
   display: flex;
   align-items: flex-end;
-
   width: 100%;
 }
 
-.detail_profile {
+/* 작성자 프로필 */
+.authorProfile {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   margin-left: auto;
 }
 
-.detail_profileImage {
+.profileImageWrapper {
   width: 100px;
   height: 100px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
 }
-.detail_profileImage img {
+
+.profileImageWrapper img {
   width: 100%;
   height: 100%;
-
-  border-radius: 50%;
 }
 
-.detail_profile span {
+.authorName {
   font-weight: 400;
   font-size: 20px;
-
   margin-top: 10px;
 }
 
-.open_community_detail {
+/* 게시글 내용 컨테이너 */
+.postContentWrapper {
   width: 70%;
-
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-
   margin-left: 60px;
   margin-right: auto;
   margin-top: 20px;
   border-radius: 30px;
   padding: 0 3%;
-
   background-color: var(--color-main);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.open_community_detail header {
+/* 게시글 헤더 */
+.postHeader {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
-
   padding-top: 20px;
-
   font-size: 12px;
   font-weight: 400;
 }
 
-.open_community_detail_header_left span {
+.postHeaderLeft span {
   margin-right: 20px;
 }
 
-.open_community_detail_title {
+/* 게시글 제목 */
+.postTitleWrapper {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
-
   padding: 10px 0;
-
   font-weight: 600;
   font-size: 18px;
 }
 
-.community_dibs {
+/* 북마크 버튼 */
+.bookmarkButton {
   width: 45px;
   height: 40px;
-
   background-color: var(--color-main);
   border: none;
-
   padding: 0;
-}
-
-.community_dibs img {
-  width: 100%;
-  height: 100%;
-
-  margin-left: 12px;
-}
-
-.community_dibs:hover {
   cursor: pointer;
 }
 
-.post_content {
+.bookmarkButton img {
+  width: 100%;
+  height: 100%;
+  margin-left: 12px;
+}
+
+/* 게시글 본문 */
+.postContent {
   width: 95%;
   padding: 30px 0;
-
   font-size: 17px;
   font-weight: 400;
   line-height: 27px;
-
-  white-space: pre-wrap; /* 줄바꿈 유지 및 자동 개행 */
+  white-space: pre-wrap;
   overflow-wrap: break-word;
 }
 
-.open_community_detail footer {
+/* 게시글 하단 */
+.postFooter {
   width: 100%;
-
   display: flex;
   justify-content: flex-end;
-
   font-weight: 600;
   margin: 20px 0;
 }
 
-.open_community_detail footer a {
+.postFooter a {
   margin-right: 70px;
   cursor: pointer;
 }
 
-.hr {
+/* 구분선 */
+.divider {
   width: 95%;
   height: 1px;
-
   margin: 60px 0;
-
   background-color: black;
 }
