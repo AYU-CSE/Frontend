@@ -6,6 +6,7 @@ import Notices from "../../pages/Notices/Notices/Notices";
 import ProfessorInfo from "../../pages/Professors/ProfessorsInfo/ProfessorInfo";
 import StudentService from "../../pages/StudentServices/StudentService/StudentService";
 import Notfound from "../../pages/Notfound/Notfound";
+import LoginPage from "../../pages/Login/LoginPage";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/notices" element={<Notices />} />
       <Route path="/professor-Info" element={<ProfessorInfo />} />
       <Route path="/student-Service" element={<StudentService />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/*" element={<Notfound />} />
     </Routes>
   );
