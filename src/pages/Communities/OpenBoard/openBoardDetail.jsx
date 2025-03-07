@@ -47,14 +47,18 @@ const OpenBoardDetail = () => {
             </div>
             <span>{post.date}</span>
           </header>
-          <h2 className={styles.open_community_title}>{post.title}</h2>
-          <div className={styles.post_info}>
-            <span>작성자: {post.author}</span> |
-            <span> 작성일: {post.date}</span> |
-            <span> 조회수: {post.views}</span>
+          <div className={styles.open_community_detail_title}>
+            <h2 className={styles.open_community_title}>{post.title}</h2>
+            <div className={styles.community_dibs}></div>
           </div>
-          <p className={styles.post_content}>{post.content}</p>
+          <pre className={styles.post_content}>{post.content}</pre>
+          <footer>
+            <span>좋아요♡</span>
+            <a>답글 달기</a>
+            <span>댓글 20</span>
+          </footer>
         </section>
+        <div className={styles.hr}></div>
 
         <Hamburger />
       </main>
