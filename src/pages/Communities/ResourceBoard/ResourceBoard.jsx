@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import Footer from "../../../components/Footer/Footer";
-import Header from "../../../components/Header/Header";
+import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
 import resourceBoardData from "../resourceBoardData";
 import styles from "../communityCommon.module.css";
@@ -68,7 +68,7 @@ const ResourceBoard = () => {
 
   return (
     <div className={styles.community}>
-      <Header />
+      <Nav />
       <main className={styles.community_main}>
         <header className={styles.community_header}>
           <div>
