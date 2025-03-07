@@ -1,10 +1,9 @@
 import React, { useState, useMemo, useEffect } from "react";
 import Footer from "../../../components/Footer/Footer";
-import Header from "../../../components/Header/Header";
+import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
 import resourceBoardData from "../resourceBoardData";
 import styles from "../communityCommon.module.css";
-
 
 const ResourceBoard = () => {
   const itemsPerPage = 15;
@@ -68,17 +67,10 @@ const ResourceBoard = () => {
   };
 
   return (
-<<<<<<< HEAD:src/pages/Communities/Community/Community.jsx
-    <div className="community">
-      <Nav />
-      <main className="community_main">
-        <header className="community_header">
-=======
     <div className={styles.community}>
-      <Header />
+      <Nav />
       <main className={styles.community_main}>
         <header className={styles.community_header}>
->>>>>>> origin/develop:src/pages/Communities/ResourceBoard/ResourceBoard.jsx
           <div>
             커뮤니티 &gt; <span>자료실</span>
           </div>
