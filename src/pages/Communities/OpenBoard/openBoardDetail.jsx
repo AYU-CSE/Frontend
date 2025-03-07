@@ -22,8 +22,8 @@ const OpenBoardDetail = () => {
     return (
       <div className={styles.community}>
         <Nav />
-        <main className={styles.communityMain}>
-          <header className={styles.communityHeader}>
+        <main className={styles.community_main}>
+          <header className={styles.community_header}>
             <div>
               커뮤니티 &gt; <span>오픈게시판</span>
             </div>
@@ -39,8 +39,8 @@ const OpenBoardDetail = () => {
   return (
     <div className={styles.community}>
       <Nav />
-      <main className={styles.communityMain}>
-        <header className={styles.communityHeader}>
+      <main className={styles.community_main}>
+        <header className={styles.community_header}>
           <div>
             커뮤니티 &gt; <span>오픈게시판</span>
           </div>
