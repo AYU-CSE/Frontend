@@ -16,6 +16,10 @@
 }
 
 .profileImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -119,4 +123,53 @@
   height: 1px;
   margin: 60px 0;
   background-color: black;
+}
+
+/* 댓글 */
+
+.commentContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.commentWrapper {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.commentContentWrapper {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60px;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 30px;
+  padding: 0 3%;
+  background-color: var(--color-main);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.commentContent {
+  width: 95%;
+  padding: 30px 0;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 27px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+/* 대댓글 */
+
+.re_commentWrapper {
+  display: flex;
+  align-items: flex-end;
+  width: 90%;
+
+  margin-right: 25px;
 }
