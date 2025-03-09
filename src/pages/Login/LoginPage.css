@@ -74,7 +74,9 @@ img {
 }
 
 .login_checkbox {
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   margin-top: 25px;
   margin-bottom: 10px;
   color: #a3a3a3;
@@ -82,9 +84,9 @@ img {
 }
 
 .login_checkbox > input {
-  position: relative;
-  top: 2px;
   margin-right: 5px;
+  height: 17px;
+  width: 5%;
 }
 
 .login_button {
