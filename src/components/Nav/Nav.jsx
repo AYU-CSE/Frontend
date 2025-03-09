@@ -122,7 +122,7 @@ const Nav = ({ bgWhiteColor = false }) => {
             <Link to={"/community"}>커뮤니티</Link>
             <ul className="dropdown">
               <li>
-                <Link to={"/openboard"}>오픈 게시판</Link>
+                <Link to={"/open-board"}>오픈 게시판</Link>
               </li>
               <li>
                 <Link to={"/resources"}>자료실</Link>
