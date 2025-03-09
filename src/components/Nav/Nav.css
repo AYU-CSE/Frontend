@@ -18,7 +18,7 @@
 }
 
 .Nav_hover {
-  height: 150px !important; /*!important*/
+  height: 110px !important; /*!important*/
   justify-content: space-between;
   width: 100%;
   transition: height 0.6s ease-in, width 0.3s ease-in, opacity 0.3s ease-in;
