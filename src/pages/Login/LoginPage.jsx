@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import Logo from "../../assets/Anyang_University_CSE_Logo.png";
 import "./LoginPage.css";
+import FindIDModal from "./FindIDModal";
 
 const LoginPage = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const idRef = useRef(null);
   const passwordRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState(null);
 
   const onSubmit = () => {
     if (!id.trim()) {
@@ -27,6 +30,15 @@ const LoginPage = () => {
     if (e.key === "Enter") {
       onSubmit();
     }
+  };
+
+  const openModal = (mode) => {
+    setModalMode(mode);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -57,16 +69,26 @@ const LoginPage = () => {
         ></input>
         <section className="login_checkbox">
           <input type="checkbox" />
-          자동 로그인
+          <p>자동 로그인</p>
         </section>
         <button className="login_button" onClick={onSubmit}>
           로그인
         </button>
         <section className="login_find">
-          <button className="login_find_id">아이디 찾기</button>
-          <button className="login_find_pw">비밀번호 찾기</button>
+          <button className="login_find_id" onClick={() => openModal("findId")}>
+            아이디 찾기
+          </button>
+          <button
+            className="login_find_pw"
+            onClick={() => openModal("findPasswd")}
+          >
+            비밀번호 찾기
+          </button>
         </section>
       </div>
+      {isModalOpen && (
+        <FindIDModal onClose={closeModal} initialMode={modalMode} />
+      )}
     </div>
   );
 };
