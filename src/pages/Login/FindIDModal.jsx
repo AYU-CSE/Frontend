@@ -55,9 +55,25 @@ const FindIDModal = ({ onClose, initialMode }) => {
                 <label className="user_id">아이디</label>
                 <input type="text" />
               </section>
-              <section className="findPasswd_user_email">
-                <label className="user_email">이메일</label>
+
+              <section className="findPasswd_user_passwd">
+                <label className="user_passwd">이메일</label>
                 <input type="text" />
+              </section>
+
+              <section className="findPasswd_user_birth">
+                <label className="user_birth">생년월일 6자리</label>
+                <input type="text" />
+              </section>
+
+              <section className="findPasswd_findType">
+                <label className="findPasswd_send">찾기유형</label>
+                <div className="findPasswd_radio">
+                  <input type="radio" name="radio-type" />
+                  Email
+                  <input type="radio" name="radio-type" />
+                  SMS
+                </div>
               </section>
             </div>
           )}
