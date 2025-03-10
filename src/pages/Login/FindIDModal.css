@@ -65,6 +65,7 @@ section > input {
   margin: auto 3px;
   font-size: 17px;
   color: var(--color-light-gray);
+  cursor: pointer;
 }
 
 .active {
@@ -99,13 +100,32 @@ section > input {
 }
 
 .findPasswd_user_id,
-.findPasswd_user_email {
+.findPasswd_user_passwd,
+.findPasswd_user_birth {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 63%;
   margin: 0 auto;
   font-size: 15px;
+}
+
+.findPasswd_findType {
+  display: flex;
+  align-items: center;
+  width: 65%;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+.findPasswd_radio > input {
+  width: 15px;
+  cursor: pointer;
+}
+
+.findPasswd_send {
+  width: 50%;
+  padding-right: 90px;
 }
 
 .modal_footer {
