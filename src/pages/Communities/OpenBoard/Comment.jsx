@@ -4,6 +4,16 @@ import styles from "./openBoardDetail.module.css";
 
 const Comment = ({ author, content, likes, replies }) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(likes); // 초기 좋아요 개수 설정
+
+  const handleLike = () => {
+    if (isLiked) {
+      setLikeCount(likeCount - 1); // 좋아요 취소 시 감소
+    } else {
+      setLikeCount(likeCount + 1); // 좋아요 클릭 시 증가
+    }
+    setIsLiked(!isLiked);
+  };
 
   return (
     <div className={styles.commentWrapper}>
@@ -19,8 +29,8 @@ const Comment = ({ author, content, likes, replies }) => {
           <pre className={styles.commentContent}>{content}</pre>
 
           <footer className={styles.postFooter}>
-            <a onClick={() => setIsLiked(!isLiked)}>
-              {isLiked ? "❤️" : "♡"} 좋아요 {likes}
+            <a onClick={handleLike}>
+              {isLiked ? "❤️" : "♡"} 좋아요 {likeCount}
             </a>
             <a>답글 달기</a>
           </footer>
