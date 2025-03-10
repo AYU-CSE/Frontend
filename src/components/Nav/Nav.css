@@ -1,4 +1,4 @@
-.Header {
+.Nav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@
   width: 20%;
   min-width: 200px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: visible;
   top: 0;
   left: 0;
   right: 0;
@@ -17,93 +17,97 @@
   position: fixed;
 }
 
-.Header_hover {
+.Nav_hover {
   height: 110px !important; /*!important*/
   justify-content: space-between;
   width: 100%;
   transition: height 0.6s ease-in, width 0.3s ease-in, opacity 0.3s ease-in;
 }
 
-.Header_shrink {
+.Nav_shrink {
   transition: width 0.3s ease-in, opacity 0.3s ease-in;
 }
 
-.Header img {
+.Nav img {
   opacity: 1;
   transition: opacity ease-in-out;
 }
 
-.Header_shrink ul {
+.Nav_shrink ul {
   opacity: 0;
 }
 
-.Header_hover ul,
+.Nav_hover ul,
 img {
   opacity: 1;
 }
 
-.Header > ul {
+.Nav > ul {
   display: flex;
 }
 
-.header_left {
+.nav_left {
   width: 20%;
   justify-content: flex-start;
   padding-left: 5px;
   flex-basis: 15%;
 }
 
-.header_left > img {
-  width: 30px;
+.nav_left > img {
+  width: 40px;
 }
 
-.Header_hover > .header_left > img {
+.Nav_hover > .nav_left > img {
   width: 300px;
+  height: 50px;
   padding-left: 10px;
 }
 
-.header_center {
-  flex-basis: 65%;
+.nav_center {
+  /* flex-basis: 65%; */
+  gap: 40px;
   width: 70%;
   justify-content: center;
 }
 
-.header_right {
+.nav_right {
   width: 10%;
   justify-content: flex-end;
   position: relative;
 }
 
-.header_center > li {
-  margin: auto 60px;
+.nav_center > li {
+  position: relative;
+  list-style: none;
+  padding: 10px 20px;
 }
 
-.header_right > li {
+.nav_right > li {
   list-style-type: none;
   font-size: 15px;
   position: relative;
   top: -25px;
 }
 
-.header_right_home,
-.header_right_LOGIN,
-.header_right_AYU {
+.nav_right_home,
+.nav_right_LOGIN,
+.nav_right_AYU {
   padding: 0px 7px;
 }
 
-.header_right_LOGIN,
-.header_right_AYU {
+.nav_right_LOGIN,
+.nav_right_AYU {
   border-left: solid 0.5px;
 }
-.header_left,
-.header_center_professorInfo,
-.header_center_departmentInfo,
-.header_center_lectureRoom,
-.header_center_notice,
-.header_center_community,
-.header_right_home,
-.header_right_AYU,
-.header_right_Login {
+.nav_left,
+.nav_center_professorInfo,
+.nav_center_departmentInfo,
+.nav_center_lectureRoom,
+.nav_center_notice,
+.nav_center_community,
+.nav_right_home,
+.nav_right_AYU,
+.nav_right_Login {
   cursor: pointer;
   text-decoration: none;
 }
@@ -124,4 +128,38 @@ ul li {
 
 .bgWhite {
   background-color: white !important;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; /* 부모 li 아래로 배치 */
+  left: 0;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 150px;
+  z-index: 1000;
+  width: max-content;
+  white-space: nowrap;
+}
+
+.dropdown li {
+  padding: 8px 20px;
+  width: 100%;
+  text-align: left;
+  background: white;
+}
+
+.dropdown li a {
+  color: black;
+  font-size: 10px;
+  display: block;
+  text-align: left;
+}
+
+.nav_center li:hover .dropdown {
+  display: block;
 }

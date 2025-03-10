@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Footer from "../../../components/Footer/Footer";
-import Header from "../../../components/Header/Header";
+import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
 import openBoardData from "../openBoardData";
 
@@ -86,7 +86,7 @@ const OpenBoard = () => {
 
   return (
     <div className={styles.community}>
-      <Header />
+      <Nav />
       <main className={styles.community_main}>
         <header className={styles.community_header}>
           <div>
@@ -106,7 +106,9 @@ const OpenBoard = () => {
             ].map((category) => (
               <div
                 key={category}
-                className={`${styles.community_category_bg} ${selectedCategory === category ? styles.active : ""}`}
+                className={`${styles.community_category_bg} ${
+                  selectedCategory === category ? styles.active : ""
+                }`}
                 onClick={() => handleCategoryClick(category)}
               >
                 {category}
@@ -114,9 +116,9 @@ const OpenBoard = () => {
             ))}
           </div>
           <div
-            className={`${styles.community_category_right} ${styles.community_category_bg} ${
-              selectedCategory === "나의 게시판" ? styles.active : ""
-            }`}
+            className={`${styles.community_category_right} ${
+              styles.community_category_bg
+            } ${selectedCategory === "나의 게시판" ? styles.active : ""}`}
             onClick={handleMyBoardClick}
           >
             나의 게시판
