@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../../pages/Home/Home";
-import ResourceBoard from "../../pages/Communities/ResourceBoard/resourceBoard";
+import ResourceBoard from "../../pages/Communities/ResourceBoard/ResourceBoard";
 import OpenBoard from "../../pages/Communities/OpenBoard/openBoard";
 import OpenBoardDetail from "../../pages/Communities/OpenBoard/openBoardDetail";
 import DepartmentInfo from "../../pages/Departments/DepartmentInfo/DepartmentInfo";
