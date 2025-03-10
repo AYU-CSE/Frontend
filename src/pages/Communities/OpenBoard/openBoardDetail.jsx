@@ -4,6 +4,8 @@ import Footer from "../../../components/Footer/Footer";
 import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
 import updatedBoardData from "../openBoardData";
+import commentData from "./commentData"; // 댓글 데이터 추가
+import Comment from "./Comment"; // 새로 만든 Comment 컴포넌트 추가
 
 import profileImage from "../../../assets/image/profile_temp.jpg";
 import bookmarkLine from "../../../assets/icons/bookmark-line.svg";
@@ -83,57 +85,18 @@ const OpenBoardDetail = () => {
                 {isLiked ? "❤️" : "♡"} 좋아요
               </a>
               <a>답글 달기</a>
-              <span>댓글 20</span>
+              <span>댓글 {commentData.length}</span>
             </footer>
           </section>
         </div>
 
         <div className={styles.divider}></div>
 
-        {/* 댓글 */}
+        {/* 댓글 목록 렌더링 */}
         <div className={styles.commentContainer}>
-          <div className={styles.commentWrapper}>
-            <aside className={styles.authorProfile}>
-              <div className={styles.profileImageWrapper}>
-                <img src={profileImage} alt="프로필 이미지" />
-              </div>
-              <span className={styles.authorName}>{post.author}</span>
-            </aside>
-
-            <section className={styles.commentContentWrapper}>
-              <pre className={styles.commentContent}>{post.content}</pre>
-
-              <footer className={styles.postFooter}>
-                <a onClick={() => setIsLiked(!isLiked)}>
-                  {isLiked ? "❤️" : "♡"} 좋아요
-                </a>
-                <a>답글 달기</a>
-                <span>댓글 20</span>
-              </footer>
-            </section>
-          </div>
-
-          {/* 대댓글 */}
-          <div className={styles.re_commentWrapper}>
-            <aside className={styles.authorProfile}>
-              <div className={styles.profileImageWrapper}>
-                <img src={profileImage} alt="프로필 이미지" />
-              </div>
-              <span className={styles.authorName}>{post.author}</span>
-            </aside>
-
-            <section className={styles.commentContentWrapper}>
-              <pre className={styles.commentContent}>{post.content}</pre>
-
-              <footer className={styles.postFooter}>
-                <a onClick={() => setIsLiked(!isLiked)}>
-                  {isLiked ? "❤️" : "♡"} 좋아요
-                </a>
-                <a>답글 달기</a>
-                <span>댓글 20</span>
-              </footer>
-            </section>
-          </div>
+          {commentData.map((comment) => (
+            <Comment key={comment.id} {...comment} />
+          ))}
         </div>
 
         <Hamburger />
