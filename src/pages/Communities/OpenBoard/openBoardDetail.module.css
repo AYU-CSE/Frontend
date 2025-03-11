@@ -1,28 +1,188 @@
 @import "../communityCommon.module.css";
 
-.open_community_detail {
-  width: 70%;
+/* 게시글 전체 레이아웃 */
+.postWrapper {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
 
+/* 작성자 프로필 */
+.authorProfile {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-
-  margin-left: 20px;
-  border-radius: 30px;
-
-  background-color: var(--color-main);
+  margin-left: auto;
 }
 
-.open_community_detail header {
-  width: 90%;
+.profileImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profileImageWrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.authorName {
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* 게시글 내용 컨테이너 */
+.postContentWrapper {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60px;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 30px;
+  padding: 0 3%;
+  background-color: var(--color-main);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* 게시글 헤더 */
+.postHeader {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-
   padding-top: 20px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
-.open_community_detail_header_left span {
-  margin: 0 20px;
+.postHeaderLeft span {
+  margin-right: 20px;
+}
+
+/* 게시글 제목 */
+.postTitleWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* 북마크 버튼 */
+.bookmarkButton {
+  width: 45px;
+  height: 40px;
+  background-color: var(--color-main);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.bookmarkButton img {
+  width: 100%;
+  height: 100%;
+  margin-left: 12px;
+}
+
+/* 게시글 본문 */
+.postContent {
+  width: 95%;
+  padding: 30px 0;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 50px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+/* 게시글 하단 */
+.postFooter {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.postFooter a {
+  margin-right: 70px;
+  cursor: pointer;
+}
+
+/* 구분선 */
+.divider {
+  width: 95%;
+  height: 1px;
+  margin: 60px 0;
+  background-color: black;
+}
+
+/* 댓글 */
+
+.commentContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.commentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.commentBlock {
+  display: flex;
+  align-items: flex-end;
+
+  width: 100%;
+
+  margin-bottom: 30px;
+}
+
+.commentContentWrapper {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60px;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 30px;
+  padding: 0 3%;
+  background-color: var(--color-main);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.commentContent {
+  display: flex;
+
+  width: 95%;
+  padding: 30px 0;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 27px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+/* 대댓글 */
+
+.re_commentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+
+  margin-right: 25px;
 }

@@ -15,11 +15,10 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* <Route path="/community" element={<OpenBoard />} /> */}
-      <Route path="/community" element={<ResourceBoard />} />
 
+      <Route path="/open-board" element={<OpenBoard />} />
       <Route path="/open-board/:id" element={<OpenBoardDetail />} />
-
+      <Route path="/resources" element={<ResourceBoard />} />
       <Route path="/department-Info" element={<DepartmentInfo />} />
 
       <Route path="/announcement" element={<Announcement />} />
