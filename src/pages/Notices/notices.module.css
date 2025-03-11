@@ -1,0 +1,30 @@
+/* 커뮤니티 공통 스타일 */
+
+.notices_main {
+  width: 100%;
+  margin: auto;
+  margin-top: 190px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 헤더 */
+.notices_header {
+  width: 100%;
+  font-family: "NanumSquareNeo", sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.notices_header div {
+  margin-left: 85px;
+}
+
+.notices_header span {
+  font-weight: 400;
+  font-size: 30px;
+}
