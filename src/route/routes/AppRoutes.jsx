@@ -4,7 +4,7 @@ import Community from "../../pages/Communities/Community/Community";
 import DepartmentInfo from "../../pages/Departments/DepartmentInfo/DepartmentInfo";
 import Notices from "../../pages/Notices/Notices/Notices";
 import ProfessorInfo from "../../pages/Professors/ProfessorsInfo/ProfessorInfo";
-import StudentService from "../../pages/StudentServices/StudentService/StudentService";
+import StudentService from "../../pages/StudentServices/LectureRoom/LectureRoom"
 import Notfound from "../../pages/Notfound/Notfound";
 
 const AppRoutes = () => {
