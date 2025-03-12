@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../../pages/Home/Home";
 import ResourceBoard from "../../pages/Communities/ResourceBoard/ResourceBoard";
+import ResourceBoardDetail from "../../pages/Communities/ResourceBoard/ResourceBoardDetail";
 import OpenBoard from "../../pages/Communities/OpenBoard/openBoard";
 import OpenBoardDetail from "../../pages/Communities/OpenBoard/openBoardDetail";
 import DepartmentInfo from "../../pages/Departments/DepartmentInfo/DepartmentInfo";
@@ -17,6 +18,7 @@ const AppRoutes = () => {
       <Route path="/open-board" element={<OpenBoard />} />
       <Route path="/open-board/:id" element={<OpenBoardDetail />} />
       <Route path="/resources" element={<ResourceBoard />} />
+      <Route path="/resources/:id" element={<ResourceBoardDetail />} />
       <Route path="/department-Info" element={<DepartmentInfo />} />
       <Route path="/notices" element={<Notices />} />
       <Route path="/professor-Info" element={<ProfessorInfo />} />

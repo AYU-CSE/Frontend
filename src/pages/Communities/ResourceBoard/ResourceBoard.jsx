@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../../components/Footer/Footer";
 import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
@@ -12,6 +13,7 @@ const ResourceBoard = () => {
   const [filteredSearch, setFilteredSearch] = useState("");
   const [searchCategory, setSearchCategory] = useState("all");
   const [allItems, setAllItems] = useState(resourceBoardData);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // 추후 백엔드 API와 연결 시 fetch 요청으로 변경 예정
@@ -64,6 +66,10 @@ const ResourceBoard = () => {
     if (e.key === "Enter") {
       handleSearch();
     }
+  };
+
+  const handlePostClick = (id) => {
+    navigate(`/resources/${id}`);
   };
 
   return (
@@ -119,7 +125,11 @@ const ResourceBoard = () => {
           <tbody>
             {displayedItems.length > 0 ? (
               displayedItems.map((item) => (
-                <tr key={item.id} className={styles.community_pointer}>
+                <tr
+                  key={item.id}
+                  className={styles.community_pointer}
+                  onClick={() => handlePostClick(item.id)}
+                >
                   <td>{item.id}</td>
                   <td>{item.title}</td>
                   <td>{item.lecture}</td>
