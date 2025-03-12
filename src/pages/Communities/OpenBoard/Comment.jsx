@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import profileImage from "../../../assets/image/profile_temp.jpg";
-import ReplyForm from "./ReplyForm";
+import ReplyForm from "../../../components/Comment/ReplyForm";
 import styles from "./openBoardDetail.module.css";
 
 const Comment = ({ author, content, likes, replies }) => {

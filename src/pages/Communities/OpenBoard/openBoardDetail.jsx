@@ -6,7 +6,7 @@ import Hamburger from "../../../components/Hamburger/Hamburger";
 import updatedBoardData from "../openBoardData";
 import commentData from "./commentData";
 import Comment from "./Comment";
-import ReplyForm from "./ReplyForm";
+import ReplyForm from "../../../components/Comment/ReplyForm";
 
 import profileImage from "../../../assets/image/profile_temp.jpg";
 import bookmarkLine from "../../../assets/icons/bookmark-line.svg";
