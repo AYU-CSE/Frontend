@@ -119,7 +119,7 @@ const Nav = ({ bgWhiteColor = false }) => {
             </ul>
           </li>
           <li onMouseEnter={handleCategoryEnter}>
-            <Link to={"/community"}>커뮤니티</Link>
+            <Link to={"/open-board"}>커뮤니티</Link>
             <ul className="dropdown">
               <li>
                 <Link to={"/open-board"}>오픈 게시판</Link>

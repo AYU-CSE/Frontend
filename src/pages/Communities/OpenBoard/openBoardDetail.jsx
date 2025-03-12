@@ -4,8 +4,9 @@ import Footer from "../../../components/Footer/Footer";
 import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
 import updatedBoardData from "../openBoardData";
-import commentData from "./commentData"; // 댓글 데이터 추가
-import Comment from "./Comment"; // 새로 만든 Comment 컴포넌트 추가
+import commentData from "./commentData";
+import Comment from "./Comment";
+import ReplyForm from "./ReplyForm";
 
 import profileImage from "../../../assets/image/profile_temp.jpg";
 import bookmarkLine from "../../../assets/icons/bookmark-line.svg";
@@ -19,6 +20,14 @@ const OpenBoardDetail = () => {
 
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+
+  // 댓글 작성
+  const [showReplyForm, setShowReplyForm] = useState(false); // 답글 폼 표시 여부
+
+  const handleReplySubmit = (replyText) => {
+    console.log("답글 내용:", replyText);
+    setShowReplyForm(false); // 답글 등록 후 폼 닫기
+  };
 
   if (!post) {
     return (
@@ -84,11 +93,14 @@ const OpenBoardDetail = () => {
               <a onClick={() => setIsLiked(!isLiked)}>
                 {isLiked ? "❤️" : "♡"} 좋아요
               </a>
-              <a>답글 달기</a>
+              <a onClick={() => setShowReplyForm(!showReplyForm)}>
+                {showReplyForm ? "답글 취소" : "답글 달기"}
+              </a>
               <span>댓글 {commentData.length}</span>
             </footer>
           </section>
         </div>
+        {showReplyForm && <ReplyForm onSubmit={handleReplySubmit} />}
 
         <div className={styles.divider}></div>
 
