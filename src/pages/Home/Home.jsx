@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
+import Nav from "../../components/Nav/Nav";
 import "./Home.css";
 
 const Home = () => {
@@ -49,7 +49,7 @@ const Home = () => {
 
   return (
     <div className="Home">
-      <Header bgWhiteColor={true} />
+      <Nav bgWhiteColor={true} />
       <section
         className="section_1"
         style={{
@@ -70,7 +70,7 @@ const Home = () => {
       >
         section_2
       </section>
-      <Footer />
+      <Footer bgColor={true} />
     </div>
   );
 };
