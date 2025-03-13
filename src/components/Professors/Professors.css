@@ -1,0 +1,88 @@
+.head-professor {
+    display: flex;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    width: 100%;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+}
+
+.head-professor .professor-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 10%; /* 왼쪽 여백 추가 */
+    margin-right: 10%;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.professor-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.professor-row {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: stretch;
+    border-bottom: 1px solid #000; /* 행 구분선 */
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.professor-card {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 15px;
+    position: relative;
+}
+
+.professor-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.professor-info {
+    flex: 1;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.position {
+    font-size: 16px;
+    font-weight: normal;
+    color: #555;
+}
+
+/* 교수 카드 사이 구분선 */
+.professor-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 10%;
+    bottom: 10%;
+    width: 0.5px;
+    background-color: #000;
+}
+.professor-card ul li {
+    margin-bottom: 7px;
+}
+.professor-card ul li strong {
+    color: #333;
+    font-weight: bold; 
+}
