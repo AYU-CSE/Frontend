@@ -1,9 +1,9 @@
 import "./Footer.css";
 import Logo from "../../assets/Anyang_University_CSE_Logo.png";
 
-const Footer = () => {
+const Footer = ({ bgColor }) => {
   return (
-    <div className="Footer">
+    <div className={`Footer ${!bgColor ? "bgColor_main" : ""} `}>
       <div className="footer_top">
         <img src={Logo} className="footer_left"></img>
         <div className="footer_right">

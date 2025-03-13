@@ -70,7 +70,7 @@ const Home = () => {
       >
         section_2
       </section>
-      <Footer />
+      <Footer bgColor={true} />
     </div>
   );
 };
