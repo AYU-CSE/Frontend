@@ -7,25 +7,31 @@
   border-radius: 0 0 30px 30px;
   background-color: var(--color-main);
   width: 20%;
-  min-width: 200px;
   margin: 0 auto;
-  overflow: visible;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
-  position: fixed;
+  z-index: 1000;
+  transition: height 0.4s ease-in-out;
+  overflow: hidden;
 }
 
 .Nav_hover {
-  height: 110px !important; /*!important*/
-  justify-content: space-between;
+  height: 110px;
   width: 100%;
-  transition: height 0.6s ease-in, width 0.3s ease-in, opacity 0.3s ease-in;
+  transition: height 0.4s ease-in-out, width 0.3s ease-in;
+}
+
+.Nav_expand {
+  height: 210px;
+  overflow: hidden;
+  transition: height 0.4s ease-in-out;
 }
 
 .Nav_shrink {
-  transition: width 0.3s ease-in, opacity 0.3s ease-in;
+  height: 50px;
+  transition: height 0.3s ease-in-out, width 0.3s ease-in;
 }
 
 .Nav img {
@@ -33,13 +39,16 @@
   transition: opacity ease-in-out;
 }
 
-.Nav_shrink ul {
-  opacity: 0;
+.Nav_shrink img {
+  position: fixed;
+  left: 40%;
+  top: 0;
+  transform: translateY(-5px);
+  transition: opacity ease-in-out, transform 0.3s ease-in-out;
 }
 
-.Nav_hover ul,
-img {
-  opacity: 1;
+.Nav_shrink ul {
+  opacity: 0;
 }
 
 .Nav > ul {
@@ -47,39 +56,48 @@ img {
 }
 
 .nav_left {
-  width: 20%;
-  justify-content: flex-start;
-  padding-left: 5px;
-  flex-basis: 15%;
+  position: fixed;
+  top: 15px;
+  left: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .nav_left > img {
   width: 40px;
 }
 
-.Nav_hover > .nav_left > img {
+.Nav_hover .nav_left img {
   width: 300px;
   height: 50px;
   padding-left: 10px;
 }
 
 .nav_center {
-  /* flex-basis: 65%; */
+  position: fixed;
+  top: 30px;
+  display: flex;
+  left: 53%;
+  transform: translateX(-50%);
   gap: 40px;
-  width: 70%;
   justify-content: center;
 }
 
-.nav_right {
-  width: 10%;
-  justify-content: flex-end;
+.nav_center li {
   position: relative;
+  padding: 10px 20px;
 }
 
-.nav_center > li {
-  position: relative;
-  list-style: none;
-  padding: 10px 20px;
+.nav_center > li > a {
+  font-family: "NanumSquareNeo";
+  font-weight: 400;
+}
+
+.nav_right {
+  position: fixed;
+  top: 40px;
+  right: 10px;
+  display: flex;
 }
 
 .nav_right > li {
@@ -98,18 +116,6 @@ img {
 .nav_right_LOGIN,
 .nav_right_AYU {
   border-left: solid 0.5px;
-}
-.nav_left,
-.nav_center_professorInfo,
-.nav_center_departmentInfo,
-.nav_center_lectureRoom,
-.nav_center_notice,
-.nav_center_community,
-.nav_right_home,
-.nav_right_AYU,
-.nav_right_Login {
-  cursor: pointer;
-  text-decoration: none;
 }
 
 ul {
@@ -130,14 +136,21 @@ ul li {
   background-color: white !important;
 }
 
+.dropdown li {
+  padding: 8px 20px;
+  text-align: left;
+}
+
+.nav_center:hover .dropdown {
+  display: block;
+}
+
 .dropdown {
   display: none;
   position: absolute;
-  top: 100%; /* 부모 li 아래로 배치 */
+  top: 100%;
   left: 0;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
   list-style: none;
   padding: 10px 0;
   min-width: 150px;
@@ -146,20 +159,44 @@ ul li {
   white-space: nowrap;
 }
 
-.dropdown li {
-  padding: 8px 20px;
-  width: 100%;
-  text-align: left;
-  background: white;
-}
-
 .dropdown li a {
-  color: black;
-  font-size: 10px;
+  font-size: 14px;
   display: block;
-  text-align: left;
 }
 
-.nav_center li:hover .dropdown {
-  display: block;
+.dropdown li:hover a {
+  background-color: transparent;
+  text-decoration: underline;
+  text-decoration-color: var(--color-navy);
+  color: #053669;
+}
+
+.dropdown li {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.dropdown li:nth-child(1) {
+  animation-delay: 0.01s;
+}
+.dropdown li:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.dropdown li:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.dropdown li:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
