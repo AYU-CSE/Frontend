@@ -6,7 +6,7 @@ import "./Nav.css";
 
 const Nav = ({ bgWhiteColor = false }) => {
   const [isHover, setIsHover] = useState(true);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdwonOpen] = useState(false);
   const [logo, setLogo] = useState(Logo1);
 
   const handleMouseEnter = () => {
@@ -18,15 +18,14 @@ const Nav = ({ bgWhiteColor = false }) => {
     if (window.scrollY === 0) return;
     setIsHover(false);
     setLogo(Logo2);
-    setIsDropdownOpen(false);
   };
 
-  const handleDropdownEnter = () => {
-    setIsDropdownOpen(true);
+  const handleMouseEnterNav = () => {
+    setIsDropdwonOpen(true);
   };
 
-  const handleDropdownLeave = () => {
-    setIsDropdownOpen(false);
+  const handleMouseLeaveNav = () => {
+    setIsDropdwonOpen(false);
   };
 
   useEffect(() => {
@@ -49,7 +48,7 @@ const Nav = ({ bgWhiteColor = false }) => {
       <div
         className={`Nav 
           ${isHover ? "Nav_hover" : "Nav_shrink"} 
-          ${isDropdownOpen ? "dropdown_visible" : ""}
+          ${isDropdownOpen ? "Nav_expand" : ""}
           ${bgWhiteColor ? " bgWhite" : "var(--color-main)"}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -60,12 +59,12 @@ const Nav = ({ bgWhiteColor = false }) => {
 
         <ul
           className="nav_center"
-          onMouseEnter={handleDropdownEnter}
-          onMouseLeave={handleDropdownLeave}
+          onMouseEnter={handleMouseEnterNav}
+          onMouseLeave={handleMouseLeaveNav}
         >
           <li>
             <Link to={"/professor-Info"}>교수 소개</Link>
-            <ul className={`dropdown `}>
+            <ul className={"dropdown"}>
               <li>
                 <Link to={"/professor-Info"}>교수진</Link>
               </li>
