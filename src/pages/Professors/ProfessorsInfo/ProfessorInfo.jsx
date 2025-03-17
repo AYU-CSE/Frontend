@@ -1,7 +1,7 @@
 // 교수 소개 (main)
 import Footer from "../../../components/Footer/Footer";
 import Nav from "../../../components/Nav/Nav";
-import Professors from "../../../components/Professors/Professors";
+import Professors from ".././Professors/Professors";
 import "./ProfessorInfo.css";
 
 const ProfessorInfo = () => {
