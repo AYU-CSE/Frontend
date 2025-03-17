@@ -1,0 +1,38 @@
+.Department span {
+    border-top: 1px solid #000;
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    
+}
+.Department pre{
+    margin-top: 10px;
+    margin-left: 120px;
+    margin-right: 100px;
+    margin-bottom: 70px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+.Department p {
+    margin-left: 120px;
+    margin-top: 40px;
+    font-weight: bolder;
+}
+.Department ul {
+    margin-left: 150px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    font-weight: bolder;
+    line-height: 1.5;
+    list-style-type: disc;
+}
+.Department .Another {
+    margin-left: 120px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.Department .Anotherlast {
+     margin-bottom: 70px;
+}
