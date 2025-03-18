@@ -1,40 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
-const TinyMCEEditor = () => {
-  const [content, setContent] = useState("Hello, World!");
+const apiKey = import.meta.env.VITE_TINYMCE_API_KEY || "no-api-key";
 
-  const handleEditorChange = (newContent) => {
-    setContent(newContent);
-  };
-
-  const apiKey = import.meta.env.VITE_TINYMCE_API_KEY || "no-api-key";
-
+export default function TinyEditor() {
   return (
-    <div>
-      <h1>TinyMCE Quick Start Guide</h1>
-      <form method="post">
-        <Editor
-          apiKey={apiKey}
-          initialValue={content}
-          init={{
-            height: 400,
-            menubar: false,
-            plugins: [
-              "advlist autolink lists link image charmap print preview anchor",
-              "searchreplace visualblocks code fullscreen",
-              "insertdatetime media table paste code help wordcount",
-            ],
-            toolbar:
-              "undo redo | formatselect | bold italic backcolor | \
-               alignleft aligncenter alignright alignjustify | \
-               bullist numlist outdent indent | removeformat | help",
-          }}
-          onEditorChange={handleEditorChange}
-        />
-      </form>
-    </div>
+    <Editor
+      apiKey={apiKey}
+      init={{
+        menubar: false,
+        plugins: [
+          // Core editing features
+          "anchor",
+          "autolink",
+          "charmap",
+          "codesample",
+          "emoticons",
+          "image",
+          "link",
+          "lists",
+          "media",
+          "searchreplace",
+          "table",
+          "visualblocks",
+          "wordcount",
+        ],
+        toolbar:
+          "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog typography | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat",
+        tinycomments_mode: "embedded",
+        tinycomments_author: "Author name",
+        mergetags_list: [
+          { value: "First.Name", title: "First Name" },
+          { value: "Email", title: "Email" },
+        ],
+      }}
+      initialValue="Welcome to TinyMCE!"
+    />
   );
-};
-
-export default TinyMCEEditor;
+}
