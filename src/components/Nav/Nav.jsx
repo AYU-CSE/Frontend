@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import Logo1 from "../../assets/Anyang_University_CSE_Logo.png";
 import Logo2 from "../../assets/Anyang_University_CSE_Logo2.png";
 import "./Nav.css";
 
 const Nav = ({ bgWhiteColor = false }) => {
+  const { isLogin } = useContext(AuthContext);
   const [isHover, setIsHover] = useState(true);
   const [isDropdownOpen, setIsDropdwonOpen] = useState(false);
   const [logo, setLogo] = useState(Logo1);
@@ -140,9 +142,13 @@ const Nav = ({ bgWhiteColor = false }) => {
             </Link>
           </li>
           <li>
-            <Link to={"/login"} className="nav_right_LOGIN">
-              LOGIN
-            </Link>
+            {isLogin ? (
+              <Link to={"/login"} className="nav_right_LOGIN">
+                LOGIN
+              </Link>
+            ) : (
+              <button className="nav_right_LOGOUT">LOGOUT</button>
+            )}
           </li>
         </ul>
       </div>
