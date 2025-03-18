@@ -143,11 +143,11 @@ const Nav = ({ bgWhiteColor = false }) => {
           </li>
           <li>
             {isLogin ? (
+              <button className="nav_right_LOGOUT">LOGOUT</button>
+            ) : (
               <Link to={"/login"} className="nav_right_LOGIN">
                 LOGIN
               </Link>
-            ) : (
-              <button className="nav_right_LOGOUT">LOGOUT</button>
             )}
           </li>
         </ul>
