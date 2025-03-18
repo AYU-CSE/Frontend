@@ -1,31 +1,12 @@
 import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext(null);
+
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  //자동 로그인
-  useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
-  }, []);
-
-  //로그인
-  const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem("user", JSON.stringify(userData));
-  };
-
-  //로그아웃
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("user");
-  };
+  //props를 하나라도 넣어야 route설정해놓은 것들이 모두 렌더링 된다.
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={{ isLogin }}>{children}</AuthContext.Provider>
   );
 }

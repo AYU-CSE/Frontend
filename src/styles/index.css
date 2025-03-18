@@ -51,4 +51,6 @@ html,
 body {
   font-family: "NanumSquareNeo", sans-serif;
   font-weight: 300;
+  overflow-x: hidden;
+  width: 100%;
 }
