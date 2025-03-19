@@ -31,9 +31,11 @@ export default function TinyEditor({ onEditorChange }) {
       init={{
         menubar: false,
         theme: "silver",
+        resize: false,
         plugins: [
           // Core editing features
           "anchor",
+          "autoresize",
           "autolink",
           "charmap",
           "codesample",
@@ -50,11 +52,9 @@ export default function TinyEditor({ onEditorChange }) {
         toolbar:
           "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | addcomment showcomments | spellcheckdialog typography | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat",
 
-        // 이건 뭔지 모르겠음 일단 놔둠둠
-        mergetags_list: [
-          { value: "First.Name", title: "First Name" },
-          { value: "Email", title: "Email" },
-        ],
+        min_height: 400,
+        max_height: 800,
+        autoresize_bottom_margin: 10,
       }}
       initialValue=""
     />
