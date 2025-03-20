@@ -9,7 +9,7 @@ import styles from "./Hamburger.module.css";
 function Hamburger() {
   return (
     <div className={styles.hamburger_container}>
-      <label for="hamburger" id={styles.hamburger_icon}>
+      <label htmlFor="hamburger" id={styles.hamburger_icon}>
         <div className={styles.hamburger_dropdown}>
           <a className={styles.hamburger_user}>
             <img src={user} alt="마이페이지" />
