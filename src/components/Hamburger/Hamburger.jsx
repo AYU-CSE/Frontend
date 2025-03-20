@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import user from "../../assets/icons/user.svg";
 import notice from "../../assets/icons/notice.svg";
 import edit from "../../assets/icons/edit.svg";
@@ -15,9 +17,12 @@ function Hamburger() {
           <a className={styles.hamburger_notice}>
             <img src={notice} alt="알림" />
           </a>
-          <a className={styles.hamburger_writing}>
+          <Link
+            to={"/community/edit-post"}
+            className={styles.hamburger_writing}
+          >
             <img src={edit} alt="글쓰기" />
-          </a>
+          </Link>
         </div>
 
         <div className={styles.hamburger_bar}>

@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import Logo1 from "../../assets/Anyang_University_CSE_Logo.png";
 import Logo2 from "../../assets/Anyang_University_CSE_Logo2.png";
 import "./Nav.css";
 
 const Nav = ({ bgWhiteColor = false }) => {
+  const { isLogin } = useContext(AuthContext);
   const [isHover, setIsHover] = useState(true);
+  const [isDropdownOpen, setIsDropdwonOpen] = useState(false);
   const [logo, setLogo] = useState(Logo1);
-  const [headerHeight, setHeaderHeight] = useState(110);
-  const minHeight = 70; // 축소된 최소 높이
-  const maxHeight = 150; // 기본 최대 높이
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHover(true);
@@ -18,25 +17,22 @@ const Nav = ({ bgWhiteColor = false }) => {
   };
 
   const handleMouseLeave = () => {
+    if (window.scrollY === 0) return;
     setIsHover(false);
     setLogo(Logo2);
-    setIsMenuOpen(false);
   };
 
-  const handleCategoryEnter = () => {
-    setIsMenuOpen(true);
+  const handleMouseEnterNav = () => {
+    setIsDropdwonOpen(true);
+  };
+
+  const handleMouseLeaveNav = () => {
+    setIsDropdwonOpen(false);
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const newHeight = Math.max(
-        maxHeight - (scrollY / 30) * (maxHeight - minHeight),
-        minHeight
-      );
-      setHeaderHeight(newHeight);
-
-      if (scrollY > 30) {
+      if (window.scrollY > 50) {
         setIsHover(false);
         setLogo(Logo2);
       } else {
@@ -50,33 +46,36 @@ const Nav = ({ bgWhiteColor = false }) => {
   }, []);
 
   return (
-    <div className={`nav-container ${isMenuOpen ? "blur-background" : ""}`}>
+    <div className="nav-container">
       <div
-        className={`Nav ${isHover ? "Nav_hover" : "Nav_shrink"}
-      ${bgWhiteColor ? " bgWhite" : "var(--color-main)"} `}
+        className={`Nav 
+          ${isHover ? "Nav_hover" : "Nav_shrink"} 
+          ${isDropdownOpen ? "Nav_expand" : ""}
+          ${bgWhiteColor ? " bgWhite" : "var(--color-main)"}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        // // 스크롤 옵션 적용
-        // style={{
-        //   height: `${headerHeight}px`,
-        // }}
       >
         <Link to={"/"} className="nav_left">
           <img src={logo} alt="Logo"></img>
         </Link>
-        <ul className="nav_center">
-          <li onMouseEnter={handleCategoryEnter}>
+
+        <ul
+          className="nav_center"
+          onMouseEnter={handleMouseEnterNav}
+          onMouseLeave={handleMouseLeaveNav}
+        >
+          <li>
             <Link to={"/professor-Info"}>교수 소개</Link>
-            <ul className="dropdown">
+            <ul className={"dropdown"}>
               <li>
-                <Link to={"/professors"}>교수진</Link>
+                <Link to={"/professor-Info"}>교수진</Link>
               </li>
               <li>
                 <Link to={"/past-professor"}>역대 교수</Link>
               </li>
             </ul>
           </li>
-          <li onMouseEnter={handleCategoryEnter}>
+          <li>
             <Link to={"/department-Info"}>학과 소개</Link>
             <ul className="dropdown">
               <li>
@@ -90,7 +89,7 @@ const Nav = ({ bgWhiteColor = false }) => {
               </li>
             </ul>
           </li>
-          <li onMouseEnter={handleCategoryEnter}>
+          <li>
             <Link to={"/student-Service"}>학생 서비스</Link>
             <ul className="dropdown">
               <li>
@@ -101,7 +100,7 @@ const Nav = ({ bgWhiteColor = false }) => {
               </li>
             </ul>
           </li>
-          <li onMouseEnter={handleCategoryEnter}>
+          <li>
             <Link to={"/notices"}>공지</Link>
             <ul className="dropdown">
               <li>
@@ -118,8 +117,8 @@ const Nav = ({ bgWhiteColor = false }) => {
               </li>
             </ul>
           </li>
-          <li onMouseEnter={handleCategoryEnter}>
-            <Link to={"/community"}>커뮤니티</Link>
+          <li>
+            <Link to={"/open-board"}>커뮤니티</Link>
             <ul className="dropdown">
               <li>
                 <Link to={"/open-board"}>오픈 게시판</Link>
@@ -130,6 +129,7 @@ const Nav = ({ bgWhiteColor = false }) => {
             </ul>
           </li>
         </ul>
+
         <ul className="nav_right">
           <li>
             <Link to={"/"} className="nav_right_home">
@@ -142,9 +142,13 @@ const Nav = ({ bgWhiteColor = false }) => {
             </Link>
           </li>
           <li>
-            <Link to={"/login"} className="nav_right_LOGIN">
-              LOGIN
-            </Link>
+            {isLogin ? (
+              <button className="nav_right_LOGOUT">LOGOUT</button>
+            ) : (
+              <Link to={"/login"} className="nav_right_LOGIN">
+                LOGIN
+              </Link>
+            )}
           </li>
         </ul>
       </div>

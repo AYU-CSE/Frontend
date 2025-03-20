@@ -1,8 +1,15 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Footer from "../../../components/Footer/Footer";
 import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
+
+import { AuthContext } from "../../../context/AuthContext";
+import LoginRequired from "../../../components/LoginRequired/LoginRequired";
+
 import resourceBoardData from "../resourceBoardData";
+
 import styles from "../communityCommon.module.css";
 
 const ResourceBoard = () => {
@@ -12,6 +19,23 @@ const ResourceBoard = () => {
   const [filteredSearch, setFilteredSearch] = useState("");
   const [searchCategory, setSearchCategory] = useState("all");
   const [allItems, setAllItems] = useState(resourceBoardData);
+  const navigate = useNavigate();
+
+  const { isLogin } = useContext(AuthContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    //LoginRequired 컴포넌트가 렌더링 되었을 때 스크롤 방지를 위함
+    if (isModalOpen) {
+      document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+      document.body.style.position = isModalOpen ? "fixed" : "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.body.style.position = "";
+    };
+  }, [isModalOpen]);
 
   useEffect(() => {
     // 추후 백엔드 API와 연결 시 fetch 요청으로 변경 예정
@@ -66,10 +90,15 @@ const ResourceBoard = () => {
     }
   };
 
+  const handlePostClick = (id) => {
+    navigate(`/resources/${id}`);
+  };
+
   return (
     <div className={styles.community}>
       <Nav />
       <main className={styles.community_main}>
+        {isModalOpen && <LoginRequired />}
         <header className={styles.community_header}>
           <div>
             커뮤니티 &gt; <span>자료실</span>
@@ -119,7 +148,11 @@ const ResourceBoard = () => {
           <tbody>
             {displayedItems.length > 0 ? (
               displayedItems.map((item) => (
-                <tr key={item.id} className={styles.community_pointer}>
+                <tr
+                  key={item.id}
+                  className={styles.community_pointer}
+                  onClick={() => handlePostClick(item.id)}
+                >
                   <td>{item.id}</td>
                   <td>{item.title}</td>
                   <td>{item.lecture}</td>
