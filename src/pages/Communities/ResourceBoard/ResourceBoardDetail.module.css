@@ -48,7 +48,7 @@
   margin-top: 20px;
   border-radius: 30px;
   padding: 0 3%;
-  background-color: #eaf2ff;
+  background-color: var(--color-main);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -80,7 +80,7 @@
 .bookmarkButton {
   width: 45px;
   height: 40px;
-  background-color: #eaf2ff;
+  background-color: var(--color-main);
   border: none;
   padding: 0;
   cursor: pointer;
@@ -115,74 +115,4 @@
 .postFooter a {
   margin-right: 70px;
   cursor: pointer;
-}
-
-/* 구분선 */
-.divider {
-  width: 95%;
-  height: 1px;
-  margin: 60px 0;
-  background-color: black;
-}
-
-/* 댓글 */
-
-.commentContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.commentWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 100%;
-}
-
-.commentBlock {
-  display: flex;
-  align-items: flex-end;
-
-  width: 100%;
-
-  margin-bottom: 30px;
-}
-
-.commentContentWrapper {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 60px;
-  margin-right: auto;
-  margin-top: 20px;
-  border-radius: 30px;
-  padding: 0 3%;
-  background-color: #eaf2ff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.commentContent {
-  display: flex;
-
-  width: 95%;
-  padding: 30px 0;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 27px;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-}
-
-/* 대댓글 */
-
-.re_commentWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 85%;
-
-  margin-right: 25px;
 }

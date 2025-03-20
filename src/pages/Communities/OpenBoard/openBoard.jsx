@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Footer from "../../../components/Footer/Footer";
 import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
+
+import { AuthContext } from "../../../context/AuthContext";
+import LoginRequired from "../../../components/LoginRequired/LoginRequired";
+
 import openBoardData from "../openBoardData";
 
 import styles from "./openBoard.module.css";
@@ -18,6 +22,22 @@ const OpenBoard = () => {
   const [selectedCategory, setSelectedCategory] = useState("전체 게시판");
   const myUserName = "이영희"; // 임시 유저 이름
   const navigate = useNavigate();
+
+  const { isLogin } = useContext(AuthContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    //LoginRequired 컴포넌트가 렌더링 되었을 때 스크롤 방지를 위함
+    if (isModalOpen) {
+      document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+      document.body.style.position = isModalOpen ? "fixed" : "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.body.style.position = "";
+    };
+  }, [isModalOpen]);
 
   useEffect(() => {
     // 추후 백엔드 API와 연결 시 fetch 요청으로 변경 예정
@@ -88,6 +108,7 @@ const OpenBoard = () => {
     <div className={styles.community}>
       <Nav />
       <main className={styles.community_main}>
+        {isModalOpen && <LoginRequired />}
         <header className={styles.community_header}>
           <div>
             커뮤니티 &gt; <span>오픈게시판</span>
