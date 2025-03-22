@@ -106,8 +106,10 @@
 /* 게시글 하단 */
 .postFooter {
   width: 100%;
+
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+
   font-weight: 600;
   margin: 20px 0;
 }
@@ -115,6 +117,10 @@
 .postFooter a {
   margin-right: 70px;
   cursor: pointer;
+}
+
+.postFooter span {
+  color: gray;
 }
 
 /* 구분선 */
@@ -166,7 +172,7 @@
 
 .commentContent {
   display: flex;
-
+  flex-direction: column;
   width: 95%;
   padding: 30px 0;
   font-size: 17px;
@@ -185,4 +191,44 @@
   width: 85%;
 
   margin-right: 25px;
+}
+
+.quatBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 80px;
+  max-width: 450px;
+
+  margin: 8px 0;
+  background-color: white;
+  cursor: pointer;
+  font-family: "NanumSquareNeo", sans-serif;
+
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.quatHeader {
+  display: flex;
+
+  width: 100%;
+
+  background-color: #349fd5;
+  color: #fff;
+  padding: 6px 10px;
+  font-family: bold;
+  font-size: 14px;
+}
+
+.quatContent {
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 10px;
+  color: #333;
+  background-color: #fff;
 }

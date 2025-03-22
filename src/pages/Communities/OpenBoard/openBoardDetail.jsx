@@ -90,13 +90,16 @@ const OpenBoardDetail = () => {
             <pre className={styles.postContent}>{post.content}</pre>
 
             <footer className={styles.postFooter}>
-              <a onClick={() => setIsLiked(!isLiked)}>
-                {isLiked ? "❤️" : "♡"} 좋아요
-              </a>
-              <a onClick={() => setShowReplyForm(!showReplyForm)}>
-                {showReplyForm ? "답글 취소" : "답글 달기"}
-              </a>
-              <span>댓글 {commentData.length}</span>
+              <div></div>
+              <div>
+                <a onClick={() => setIsLiked(!isLiked)}>
+                  {isLiked ? "❤️" : "♡"} 좋아요
+                </a>
+                <a onClick={() => setShowReplyForm(!showReplyForm)}>
+                  {showReplyForm ? "답글 취소" : "답글 달기"}
+                </a>
+                <span>댓글 {commentData.length}</span>
+              </div>
             </footer>
           </section>
         </div>
