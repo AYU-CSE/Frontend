@@ -41,7 +41,7 @@ const commentData = [
       {
         id: 103,
         author: "정희진",
-        content: `#1 이 내용에 정말 공감해요!
+        content: `#1이 내용에 정말 공감해요!
         `,
         likes: 3,
       },

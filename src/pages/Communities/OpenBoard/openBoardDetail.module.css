@@ -106,8 +106,10 @@
 /* 게시글 하단 */
 .postFooter {
   width: 100%;
+
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+
   font-weight: 600;
   margin: 20px 0;
 }
@@ -115,6 +117,10 @@
 .postFooter a {
   margin-right: 70px;
   cursor: pointer;
+}
+
+.postFooter span {
+  color: gray;
 }
 
 /* 구분선 */

@@ -103,12 +103,15 @@ const Comment = ({ id, author, content, likes, replies }) => {
           </div>
 
           <footer className={styles.postFooter}>
-            <a onClick={handleLike}>
-              {isLiked ? "❤️" : "♡"} 좋아요 {likeCount}
-            </a>
-            <a onClick={() => setShowReplyForm(!showReplyForm)}>
-              {showReplyForm ? "답글 취소" : "답글 달기"}
-            </a>
+            <span>#{id}</span>
+            <div>
+              <a onClick={handleLike}>
+                {isLiked ? "❤️" : "♡"} 좋아요 {likeCount}
+              </a>
+              <a onClick={() => setShowReplyForm(!showReplyForm)}>
+                {showReplyForm ? "답글 취소" : "답글 달기"}
+              </a>
+            </div>
           </footer>
         </section>
       </div>
