@@ -79,7 +79,7 @@ const Nav = ({ bgWhiteColor = false }) => {
             <Link to={"/department-Info"}>학과 소개</Link>
             <ul className="dropdown">
               <li>
-                <Link to={"/department"}>학과 안내</Link>
+                <Link to={"/department-Info"}>학과 안내</Link>
               </li>
               <li>
                 <Link to={"/curriculum"}>교과목 소개</Link>

@@ -13,6 +13,7 @@ import ProfessorInfo from "../../pages/Professors/ProfessorsInfo/ProfessorInfo";
 import StudentService from "../../pages/StudentServices/StudentService/StudentService";
 import Notfound from "../../pages/Notfound/Notfound";
 import LoginPage from "../../pages/Login/LoginPage";
+import Curriculum from "../../pages/Departments/Curriculum/Curriculum";
 
 const AppRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const AppRoutes = () => {
       <Route path="/community/edit-post" element={<EditPost />} />
 
       <Route path="/department-Info" element={<DepartmentInfo />} />
+      <Route path="/curriculum" element={<Curriculum />} />
       <Route path="/notices" element={<Notices />} />
       <Route path="/professor-Info" element={<ProfessorInfo />} />
       <Route path="/student-Service" element={<StudentService />} />
