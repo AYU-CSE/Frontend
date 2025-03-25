@@ -11,6 +11,7 @@ const LoginPage = () => {
   const passwordRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState(null);
+  const [findUser, setFindUser] = useState(false);
 
   const onSubmit = () => {
     if (!id.trim()) {
@@ -35,11 +36,19 @@ const LoginPage = () => {
   const openModal = (mode) => {
     setModalMode(mode);
     setIsModalOpen(true);
+    setFindUser(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setFindUser(false);
   };
+
+  if (findUser) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
 
   return (
     <div className="LoginPage">

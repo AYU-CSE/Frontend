@@ -3,31 +3,19 @@ import { useParams } from "react-router-dom";
 import Footer from "../../../components/Footer/Footer";
 import Nav from "../../../components/Nav/Nav";
 import Hamburger from "../../../components/Hamburger/Hamburger";
-import updatedBoardData from "../openBoardData";
-import commentData from "./commentData";
-import Comment from "./Comment";
-import ReplyForm from "../../../components/Comment/ReplyForm";
+import updatedBoardData from "../resourceBoardData";
 
 import profileImage from "../../../assets/image/profile_temp.jpg";
 import bookmarkLine from "../../../assets/icons/bookmark-line.svg";
 import bookmarkFill from "../../../assets/icons/bookmark-fill.svg";
 
-import styles from "./openBoardDetail.module.css";
+import styles from "./ResourceBoardDetail.module.css";
 
-const OpenBoardDetail = () => {
+const ResourceBoardDetail = () => {
   const { id } = useParams();
   const post = updatedBoardData.find((item) => item.id === parseInt(id));
 
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
-
-  // 댓글 작성
-  const [showReplyForm, setShowReplyForm] = useState(false); // 답글 폼 표시 여부
-
-  const handleReplySubmit = (replyText) => {
-    console.log("답글 내용:", replyText);
-    setShowReplyForm(false); // 답글 등록 후 폼 닫기
-  };
 
   if (!post) {
     return (
@@ -36,7 +24,7 @@ const OpenBoardDetail = () => {
         <main className={styles.community_main}>
           <header className={styles.community_header}>
             <div>
-              커뮤니티 &gt; <span>오픈게시판</span>
+              커뮤니티 &gt; <span>자료실</span>
             </div>
           </header>
           <p className={styles.errorMessage}>게시글을 찾을 수 없습니다.</p>
@@ -53,7 +41,7 @@ const OpenBoardDetail = () => {
       <main className={styles.community_main}>
         <header className={styles.community_header}>
           <div>
-            커뮤니티 &gt; <span>오픈게시판</span>
+            커뮤니티 &gt; <span>자료실</span>
           </div>
         </header>
 
@@ -89,29 +77,8 @@ const OpenBoardDetail = () => {
 
             <pre className={styles.postContent}>{post.content}</pre>
 
-            <footer className={styles.postFooter}>
-              <div></div>
-              <div>
-                <a onClick={() => setIsLiked(!isLiked)}>
-                  {isLiked ? "❤️" : "♡"} 좋아요
-                </a>
-                <a onClick={() => setShowReplyForm(!showReplyForm)}>
-                  {showReplyForm ? "답글 취소" : "답글 달기"}
-                </a>
-                <span>댓글 {commentData.length}</span>
-              </div>
-            </footer>
+            <footer className={styles.postFooter}></footer>
           </section>
-        </div>
-        {showReplyForm && <ReplyForm onSubmit={handleReplySubmit} />}
-
-        <div className={styles.divider}></div>
-
-        {/* 댓글 목록 렌더링 */}
-        <div className={styles.commentContainer}>
-          {commentData.map((comment) => (
-            <Comment key={comment.id} {...comment} />
-          ))}
         </div>
 
         <Hamburger />
@@ -121,4 +88,4 @@ const OpenBoardDetail = () => {
   );
 };
 
-export default OpenBoardDetail;
+export default ResourceBoardDetail;
