@@ -1,0 +1,55 @@
+.Room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(33.33% - 40px);
+    aspect-ratio: 5 / 4;
+    background-color: rgb(70, 85, 110);
+}
+
+.RoomImg {
+    display: flex;
+    width: 90%;
+    height: auto;
+    padding: 10px 0px;
+}
+
+.reservation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border-style: none;
+    background-color: white;
+}
+
+.roombody {
+    display: flex;
+    width: 80%;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: white;
+}
+
+.roomNum {
+    display: flex;
+    font-size: 23px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+.roomPos {
+    display: flex;
+    padding-bottom: 5px;;
+}
+
+.reservation :hover {
+    cursor: pointer;
+}
+
+.reservationArrow {
+    width: 40px;
+    height: auto;
+}
