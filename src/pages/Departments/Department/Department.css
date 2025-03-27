@@ -1,0 +1,99 @@
+.Course span {
+    border-top: 1px solid #000;
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    
+}
+.Department span {
+    border-top: 1px solid #000;
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    
+}
+.Direction span {
+    border-top: 1px solid #000;
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    
+}
+.IdolTalent span {
+    border-top: 1px solid #000;
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    
+}
+.Qualifications span {
+    border-top: 1px solid #000;
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    
+}
+.Department pre{
+    margin-top: 10px;
+    margin-left: 120px;
+    margin-right: 100px;
+    margin-bottom: 70px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+.Course pre{
+    margin-top: 10px;
+    margin-left: 120px;
+    margin-right: 100px;
+    margin-bottom: 70px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+.Direction pre{
+    margin-top: 10px;
+    margin-left: 120px;
+    margin-right: 100px;
+    margin-bottom: 70px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+.Department p {
+    margin-left: 120px;
+    margin-top: 40px;
+    font-weight: bolder;
+}
+.IdolTalent p {
+    margin-left: 120px;
+    margin-top: 40px;
+    font-weight: bolder;
+}
+.IdolTalent ul {
+    margin-left: 150px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    font-weight: bolder;
+    line-height: 1.5;
+    list-style-type: disc;
+}
+.Qualifications ul{
+    margin-left: 150px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    font-weight: bolder;
+    line-height: 1.5;
+    list-style-type: disc;
+}
+.Course .Another {
+    margin-left: 120px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.Course .Anotherlast {
+     margin-bottom: 70px;
+}
