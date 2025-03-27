@@ -97,7 +97,7 @@ const Nav = ({ bgWhiteColor = false }) => {
                 <Link to={"/lecture-room"}>강의실</Link>
               </li>
               <li>
-                <Link to={"/study-room"}>열람실 및 스터디룸</Link>
+                <Link to={"/study-room"}>스터디룸 및 열람실</Link>
               </li>
             </ul>
           </li>
