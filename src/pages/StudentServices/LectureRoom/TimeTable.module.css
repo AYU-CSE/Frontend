@@ -1,0 +1,13 @@
+@import "../studentService.module.css";
+
+.timeTable_main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeTableImg {
+    width: 60%;
+    height: auto;
+}

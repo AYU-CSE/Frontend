@@ -1,0 +1,28 @@
+.studentService_main {
+    width: 100%;
+    margin: auto;
+    margin-top: 170px;
+    margin-bottom:130px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.studentService_header {
+    width: 100%;
+    font-family: "NanumSquareNeo", sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .studentService_header div {
+    margin-left: 85px;
+  }
+  
+  .studentService_header span {
+    font-weight: 400;
+    font-size: 25px;
+  }

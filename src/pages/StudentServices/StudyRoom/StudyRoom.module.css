@@ -1,0 +1,19 @@
+@import ".././studentService.module.css";
+
+.studyroomBody {
+    display: flex;
+    margin-top: 50px;
+    width: 83%;
+}
+
+.studyroom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+}
+
+.selfStudyRoom {
+    display: flex;
+}
