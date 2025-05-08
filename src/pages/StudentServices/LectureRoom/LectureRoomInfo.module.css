@@ -1,0 +1,109 @@
+@import "../studentService.module.css";
+
+.LectureRoomInfo {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  width: 90% center;
+  gap: 20px;
+  }
+
+  .lectureRoomInfo .lectureDepartment {
+    flex: 1;
+  }
+
+.Info {
+  display: flex;
+  width: 75%;
+  gap: 5%;
+  padding: 20px 50px;
+  align-items: center;  
+  justify-content: space-between;
+  background-color: rgb(70, 85, 110);
+  font-size: 20px;
+  color: white;
+}
+
+.lectureDepartment {
+  display: flex;
+  width: 220px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.lectureTime {
+  display: flex;
+  align-items: center;
+}
+
+.lectureTimeNow {
+  display: flex;
+  width: 135px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nextTime {
+  display: flex;
+  width: 20px;
+  height: auto;
+  color: white;
+}
+
+.nextTime:hover {
+  cursor: pointer;
+}
+
+.stateCircle {
+  color: rgb(43, 221, 43);
+}
+
+.stateCircleActive {
+  color: rgb(243, 36, 36);
+}
+
+.stateText {
+  display: flex;
+  width: 90px;
+}
+
+.lectureStatement {
+  display: flex;
+  width: 111px;
+  gap: 10px;
+  justify-content: space-between
+}
+
+.lectureSchedule {
+  width:12%;
+  padding: 20px;
+  align-items: center;
+  border: none;
+  background-color: rgb(70, 85, 110);
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  font-family: "NanumSquareNeo";
+}
+
+.lectureSchedule:hover {
+  cursor: pointer;
+}
+
+.lectureSchedule div {
+  align-items: center;
+  margin-left: 15%;
+  margin-right: 15%;
+  position: relative; /* relative 위치 지정 */
+}
+
+.lectureSchedule div::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  border-bottom: 0.8px solid white;
+}
+
