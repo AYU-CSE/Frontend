@@ -7,6 +7,7 @@ import OpenBoard from "../../pages/Communities/OpenBoard/openBoard";
 import OpenBoardDetail from "../../pages/Communities/OpenBoard/openBoardDetail";
 import EditPost from "../../pages/Communities/EditPost/EditPost";
 
+import Curriculum from "../../pages/Departments/Curriculum/Curriculum";
 import DepartmentInfo from "../../pages/Departments/DepartmentInfo/DepartmentInfo";
 import Notices from "../../pages/Notices/Notices/Notices";
 import ProfessorInfo from "../../pages/Professors/ProfessorsInfo/ProfessorInfo";
