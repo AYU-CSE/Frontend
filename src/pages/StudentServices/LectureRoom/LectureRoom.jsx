@@ -3,7 +3,7 @@ import styles from "./LectureRoom.module.css";
 import Nav from "../../../components/Nav/Nav";
 import LectureRoomInfo from "./LectureRoomInfo.jsx";
 import Footer from "../../../components/Footer/Footer";
-import lecturesData from "./LectureData.js"; // 강의 데이터
+import lecturesData from "./AvailableLectureData.js"; // 강의 데이터
 
 const LectureRoom = () => {
   // 현재 시간을 "HH:MM" 형식으로 반환하는 함수

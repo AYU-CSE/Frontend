@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 15px;
     width: calc(33.33% - 40px);
     aspect-ratio: 5 / 4;
     background-color: rgb(70, 85, 110);
@@ -9,9 +10,11 @@
 
 .RoomImg {
     display: flex;
-    width: 90%;
-    height: auto;
-    padding: 10px 0px;
+    margin: 0px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .reservation {
@@ -27,9 +30,9 @@
 
 .roombody {
     display: flex;
-    width: 80%;
-    align-items: flex-start;
+    width: 85%;
     justify-content: space-between;
+    align-items: center;
     color: white;
 }
 
@@ -37,12 +40,17 @@
     display: flex;
     font-size: 23px;
     font-weight: 500;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.roomInfoText {
+    padding-left: 10px;
+    font-size: 15px;
 }
 
 .roomPos {
     display: flex;
-    padding-bottom: 5px;;
+    padding-bottom: 5px;
 }
 
 .reservation :hover {
